@@ -2,7 +2,7 @@
 title: "【DaVinci Resolve】AIを使用してButtonControlのExecuteに設定するスクリプトを作る話"
 emoji: "🤖"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["davinciresolve"]
+topics: ["davinciresolve", "openai"]
 published: true
 ---
 
