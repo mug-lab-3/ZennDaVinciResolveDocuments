@@ -166,6 +166,10 @@ print(formatted_date .. "(" .. formatted_weekday .. ")")
 📅曜日、🌡気温、🌤天気などを取得するスクリプトに変更すれば、旅行系動画の
 エフェクトに活用することができます😤
 
+この内容だとLuaでは難しいのでpythonを使用したほうが良いです。
+スクリプトの先頭に`!Py3: `といれるとpython3でスクリプトを書けます。
+https://www.steakunderwater.com/wesuckless/viewtopic.php?t=60
+
 # 🐔おわりに
 
 このようにスクリプトを0から作ってもらい完成させることが出来ます。
