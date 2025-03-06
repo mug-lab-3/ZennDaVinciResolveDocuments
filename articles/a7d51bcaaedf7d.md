@@ -1,5 +1,5 @@
 ---
-title: "【DaVinci Resolve】 ポインタ型と数値型の相互変換 【Fuse】"
+title: "【DaVinci Resolve】 ポインタ型と数値型の相互変換 【Fusion】"
 emoji: "🔃"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [davinciresolve, lua, fusion]
