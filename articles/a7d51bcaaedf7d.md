@@ -13,7 +13,7 @@ published: true
 
 Fusion では`SetData`/`GetData`というAPIがあり、これを使用すると
 Tool(Node)間で任意データをやり取りすることができます👍
-しかし、`SetData`/`GetData`には制限があり、`Number`,`Point`,`table`のような
+しかし、`SetData`/`GetData`には制限があり、`Number`,`Point`,`string`,`table`のような
 基本型しか使用することができません😭
 
 Fusionで使われているLuaではC言語の関数を呼び出すことができ
