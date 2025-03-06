@@ -421,6 +421,12 @@ CPUのバイトオーダーによってhigh, loが逆の可能性があります
 ついにアドレスを数値に変換することができました🎉
 ではSetData/GetDataしてみます🫡
 
+:::message
+DaVinci Resolveのconsoleに入力している場合、連続実行すると
+`attempt to redefine 'split_u64'`という再定義エラーになります
+その場合は`ffi.cdef`以外の部分を実行してください🥺
+:::
+
 ```lua
 local ffi = require("ffi")
 
