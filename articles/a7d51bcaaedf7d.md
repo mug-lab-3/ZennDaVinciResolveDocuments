@@ -9,7 +9,7 @@ published: true
 # 🐥はじめに
 
 みなさん、こんにちは。[Mug](https://www.youtube.com/@MugLabVideoEditing)です🐼
-これは📽[DaVinci Resolve](https://www.blackmagicdesign.com/jp/products/davinciresolve)のFusion Fuseについての記事です
+これは📽[DaVinci Resolve](https://www.blackmagicdesign.com/jp/products/davinciresolve)のFusionについての記事です
 
 Fusion では`SetData`/`GetData`というAPIがあり、これを使用すると
 Tool(Node)間で任意データをやり取りすることができます👍
