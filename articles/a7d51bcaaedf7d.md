@@ -400,8 +400,8 @@ local wrapper = ffi.new("wrapper_t")
 wrapper.p = mallocAddress
 
 local highAddress = tonumber(wrapper.i.h)
-local loAddress = tonumber(wrapper.i.l)
-print(string.format("wrapper hex: high=0x%x, lo=0x%08x", highAddress, loAddress))
+local lowAddress = tonumber(wrapper.i.l)
+print(string.format("wrapper hex: high=0x%x, low=0x%08x", highAddress, lowAddress))
 
 ffi.C.free(mallocAddress)
 ```
@@ -409,10 +409,10 @@ ffi.C.free(mallocAddress)
 👇ついにできました！！😊✌️
 ```lua
 cdata<void *>: 0x0222e8484b40
-numberUint32 hex: high=0x222, lo=0xe8484b40
+numberUint32 hex: high=0x222, low=0xe8484b40
 ```
 :::message
-CPUのバイトオーダーによってhigh, loが逆の可能性がありますが影響はないはずです...🤔
+CPUのバイトオーダーによってhigh, lowが逆の可能性がありますが影響はないはずです...🤔
 :::
 
 
