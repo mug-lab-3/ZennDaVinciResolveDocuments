@@ -383,8 +383,8 @@ local ffi = require("ffi")
 
 -- i64構造体とwrapper共用体を定義
 ffi.cdef [[
-typedef struct i64{unsigned int l; unsigned int h;} i64_t;
-typedef union wrapper{ i64_t i; unsigned char* p; } wrapper_t;
+typedef struct split_u64{unsigned int l; unsigned int h;} split_u64_t;
+typedef union wrapper{ split_u64_t i; unsigned char* p; } wrapper_t;
 
 void* malloc(size_t size);
 void free(void *p);
@@ -401,7 +401,7 @@ wrapper.p = mallocAddress
 
 local highAddress = tonumber(wrapper.i.h)
 local loAddress = tonumber(wrapper.i.l)
-print(string.format("numberUint32 hex: high=0x%x, lo=0x%08x", highAddress, loAddress))
+print(string.format("wrapper hex: high=0x%x, lo=0x%08x", highAddress, loAddress))
 
 ffi.C.free(mallocAddress)
 ```
