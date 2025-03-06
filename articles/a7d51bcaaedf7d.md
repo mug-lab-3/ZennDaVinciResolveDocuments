@@ -2,7 +2,7 @@
 title: "【DaVinci Resolve】 ポインタ型と数値型の相互変換 【Fuse】"
 emoji: "🔃"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [davinciresolve, lua, fuse]
+topics: [davinciresolve, lua, fusion]
 published: true
 ---
 
