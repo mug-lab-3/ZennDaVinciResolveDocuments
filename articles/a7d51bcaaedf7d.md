@@ -320,7 +320,7 @@ ffi.C.free(mallocAddress)
 ```
 
 これを実行した結果が👇下記です
-残念ですが、結局`cdata`型なのでSetDataできません😭
+残念ですが、まだ`cdata`型なのでSetDataできません😭
 ```
 cdata<void *>: 0x021fc769da40
 cdata<unsigned char *>: 0x021fc769da40
