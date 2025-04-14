@@ -27,7 +27,7 @@ Halftoneではドットの密度によって濃淡を表現します🤔
 
 # Variable Blurによるhalftone
 
-VariBlurノードを使用したhalftoneです
+`VariBlur`を使用したhalftoneです
 
 :::message
 画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
@@ -123,8 +123,22 @@ _`VariBlur` → `ColorCurves` → `MediaOut`_
 * 各パラメータの調整が難しい
 * 垂直方向のラインが目立つ
 
+## 参考動画
+
+https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
+
 
 # Particleによるhalftone
+
+`Particle`を使用したhalftoneです
+
+:::message
+画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
+:::
+
+
+## 参考動画
+https://youtu.be/55c9sjzjCAc?si=FtGH9ih0VJbTUfnC
 
 # MugSimpleHalftoneによるhalftone
 
