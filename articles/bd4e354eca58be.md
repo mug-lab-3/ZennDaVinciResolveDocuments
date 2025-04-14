@@ -110,15 +110,20 @@ _`ColorCurves`_
 ![Dot](/images/articles/halftone/variblur/color-curves-node.png)
 _`VariBlur` → `ColorCurves` → `MediaOut`_
 
-## 評価
+## まとめ
 
 これで完成です
 
-👍**イイねポイント**👍
+![Dot](/images/articles/halftone/variblur/variblur-all.png)
+_ノード構成全体_
+
+### 👍**イイねポイント**👍
+
 * それっぽい見た目
 * 処理が軽め
 
-🤢**残念ポイント**🤢
+### 🤢**残念ポイント**🤢
+
 * ノードの組み合わせが難しい
 * 各パラメータの調整が難しい
 * 垂直方向のラインが目立つ
