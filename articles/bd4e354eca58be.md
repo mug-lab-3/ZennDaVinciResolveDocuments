@@ -143,7 +143,8 @@ https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 
 
 ## 参考動画
-https://youtu.be/55c9sjzjCAc?si=FtGH9ih0VJbTUfnC
+https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
+
 
 # MugSimpleHalftoneによるhalftone
 
