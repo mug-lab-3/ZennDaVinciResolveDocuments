@@ -102,7 +102,7 @@ _`Marge` (Background: `Background`, Foreground: `Transform`)_
 ## 4. コントラスト調整
 
 `ColorCurves`をドットのコントラストを調整します
-👇の画像のような形にしてコントラストを上げます、入力画像に合わせて調整します💪
+👇カーブ設定を画像のような形にしてコントラストを上げます、入力画像に合わせて調整します💪
 
 ![Dot](/images/articles/halftone/variblur/color-curves.png)
 _`ColorCurves`_
