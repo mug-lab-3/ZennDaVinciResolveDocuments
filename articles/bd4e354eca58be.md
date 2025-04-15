@@ -335,7 +335,9 @@ _ノード接続: `Input Image` → `MugSimpleHalftone` → `MediaOut`_
 直感的に設定できる(と思う)のでお好みで調整します😊
 
 :::message
-入力映像の解像度が高いほうがきれいなhalftoneになります🐼
+入力映像の解像度が高いほうがきれいなhalftoneになります
+解像度が低い場合はResizeノードで解像度を上げてからhalftoneをかけるのが
+おすすめテクニックです🐼
 :::
 
 ![MugSimpleHalftone settings](/images/articles/halftone/variblur/msh-settings.png)
