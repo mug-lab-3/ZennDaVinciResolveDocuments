@@ -44,10 +44,6 @@ https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
 ![Halftone example using 'VariBlur'](/images/articles/halftone/variblur/variblur-sample.png)
 _完成品_
 
-:::message
-以降、画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
-:::
-
 ## 1. ドット作成
 
 `Shape`等を使用してドットを作成し
@@ -155,10 +151,6 @@ https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 
 ![Halftone example using 'Particle'](/images/articles/halftone/variblur/particle-sample.png)
 _完成品_
-
-:::message
-以降、画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
-:::
 
 ## 1. Particle化
 
