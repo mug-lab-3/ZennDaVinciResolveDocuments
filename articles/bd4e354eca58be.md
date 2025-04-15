@@ -99,7 +99,7 @@ _`Input Image` → `InvertColor` → `VariBlur`(Foreground)_
 _Background_
 
 ![Dot](/images/articles/halftone/variblur/background-node.png)
-_`Marge` (Background: `Background`, Foreground: `Transform`)_
+_`Merge` (Background: `Background`, Foreground: `Transform`)_
 
 ## 4. コントラスト調整
 
@@ -204,8 +204,6 @@ _`pImageEmitter` → `pCustom` → `pRender`_
 ![pCustom-Preview](/images/articles/halftone/variblur/pcustom-param2.png)
 _`pCustom` ParticleページSizeの設定_
 
-
-
 ## 3. ドット色設定
 
 `pCustom`を使用してParticleの色を上書き設定します
@@ -216,6 +214,49 @@ Red, Green, Blueに好きな色を設定します
 ![pCustom-Color](/images/articles/halftone/variblur/pcustom-color.png)
 _`pCustom` ParticleページRed/Green/Blueの設定_
 
+
+## 4. 背景色設定
+
+`Background`をマージして背景色を設定します
+これは好きな色を設定します
+※ ここでは白にします
+
+![Background-Color](/images/articles/halftone/variblur/particle-background.png)
+_`Background` の設定_
+
+![Background-Node](/images/articles/halftone/variblur/particle-background-node.png)
+_`Merge` (Background: `Background`, Foreground: `pRender`)_
+
+
+## 5. ドットサイズ調整
+
+映像を見ながら`pImageEmitter`のDensity, Sizeを好みの画になるように調整します
+
+今回は以下のように設定し直しました
+* Density = 0.2
+* Size = 1.4
+
+※ Densityを上げれば上げるほど重くなります🐘
+
+![Contrst](/images/articles/halftone/variblur/particle-contrast.png)
+_`pImageEmitter`再調整_
+
+## まとめ
+
+これで完成です
+
+![Dot](/images/articles/halftone/variblur/particle-all.png)
+_ノード構成全体_
+
+### 👍**イイねポイント**👍
+
+* きれいな円形ドット
+* 正確なhalftone表現
+
+### 🤢**残念ポイント**🤢
+
+* ノードの組み合わせが難しい
+* 非常に動作が重い🐘🐘🐘
 
 ## 参考動画
 https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
