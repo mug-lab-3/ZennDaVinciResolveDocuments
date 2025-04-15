@@ -334,6 +334,10 @@ _ノード接続: `Input Image` → `MugSimpleHalftone` → `MediaOut`_
 映像を見ながら`MugSimpleHalftone`のインスペクタで各パラメータを調整します
 直感的に設定できる(と思う)のでお好みで調整します😊
 
+:::message
+入力映像の解像度が高いほうがきれいなhalftoneになります🐼
+:::
+
 ![MugSimpleHalftone settings](/images/articles/halftone/variblur/msh-settings.png)
 _設定例_
 
