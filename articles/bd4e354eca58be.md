@@ -36,7 +36,7 @@ _完成品_
 
 
 :::message
-画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
+以降、画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
 :::
 
 
@@ -147,38 +147,44 @@ https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 _完成品_
 
 :::message
-画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
+以降、画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
 :::
 
 ## 1. Particle化
 
 `pImageEmitter`を使用して入力映像をparticle化します
-ただ接続したたけど何も表示されないため`pImageEmitter`の
-各パラメータを下記のように設定します
+ただ接続しただけでは何も表示されないため
+`pImageEmitter`の各パラメータを下記のように設定します
 
-⚙️ Controls ⚙️
-1. Densityを0.1
-1. Create Particles Every Frameにチェック
+### ⚙️ Controls ⚙️
+
+1. X Densityを0.1
+1. Y Densityを0.1
+1. Create Particles Every Frameにチェック✅
 1. Lifespanを1
 
-⚙️ Style ⚙️
+### ⚙️ Style ⚙️
+
 1. StyleをNGon
 1. NGon Sidesを12
 1. Sizeを2.0
 
-* Densityはドット分割数です、大きくするとより細かなドットとなります
+### 🗒️設定値解説 🗒️
+
+* `Density`はドット分割数です、大きくするとより細かなドットとなります
+ → 大きくすればするほど処理が重くなります😵‍💫
 * `Create Prticles Every Frame`, `Lifespan`を設定することでParticleの生成を固定化します
 * ドット状になるようにStyleを設定します
-* SizeはDensityに合わせてちょうどドットで埋まるようなサイズに設定します
- → Densityを変更したらSizeも変更します
+* `Size`を2.0にすることである程度暗いところがきれいに塗りつぶされるように設定します
+ → これはお好みで調整です👍
 
-正しく設定できれば下記のようになります✨
+👇 正しく設定できれば下記のように少し解像度が下がったような映像になります👀
 
 ![pImageEmitter-Preview](/images/articles/halftone/variblur/pimageemitter.png)
 _`pImageEmitter`_
 
 ![pImageEmitter-Node](/images/articles/halftone/variblur/pimageemitter-node.png)
-_`Input Image` → `pImageEmitter` → `pRender`_
+_ノード接続: `Input Image` → `pImageEmitter` → `pRender`_
 
 ![pImageEmitter-Controls](/images/articles/halftone/variblur/pimageemitter-param1.png)
 _`pImageEmitter` Controlsの設定_
@@ -188,10 +194,10 @@ _`pImageEmitter` Styleの設定_
 
 ## 2. 輝度に応じたドットサイズ設定
 
-pCustomを使用してParticleごとに異なるサイズになるようにします
-各Particleの輝度を算出し、その輝度に比例してParticleサイズを設定します
+`pCustom`を使用してParticleごとに異なるサイズのドットとなるようにします
+各Particleの輝度を算出し、その輝度に比例してParticleサイズを設定します🤔
 
-具体的には`pCustom`のParticleページのSizeを下記のように設定します
+具体的には`pCustom`でParticleページのSizeを下記のように設定します
 
 ```lua
 size * (1 - ((r * 0.299) + (g * 0.587) + (b * 0.114)))
@@ -201,10 +207,10 @@ size * (1 - ((r * 0.299) + (g * 0.587) + (b * 0.114)))
 
 
 ![pCustom-Preview](/images/articles/halftone/variblur/pcustom.png)
-_`pCustom`_
+_`pCustom`プレビュー_
 
 ![pCustom-Preview](/images/articles/halftone/variblur/pcustom-node.png)
-_`pImageEmitter` → `pCustom` → `pRender`_
+_ノード接続: `pImageEmitter` → `pCustom` → `pRender`_
 
 ![pCustom-Preview](/images/articles/halftone/variblur/pcustom-param1.png)
 ✂️ --- 中略 ---✂️
@@ -234,19 +240,17 @@ _`Background` の設定_
 ![Background-Node](/images/articles/halftone/variblur/particle-background-node.png)
 _`Merge` (Background: `Background`, Foreground: `pRender`)_
 
+:::message
+Foreground/Backgroundの接続先に注意❗
+:::
 
-## 5. ドットサイズ調整
+## 5. コントラスト調整
 
-映像を見ながら`pImageEmitter`のDensity, Sizeを好みの画になるように調整します
-
-今回は以下のように設定し直しました
-* Density = 0.2
-* Size = 1.4
-
-※ Densityを上げれば上げるほど重くなります🐘
+`BrightnessContrast`を追加して入力映像のコントラストを調整します
+これは映像を見ながら好みのドット感になるように設定します
 
 ![Contrst](/images/articles/halftone/variblur/particle-contrast.png)
-_`pImageEmitter`再調整_
+_`BrightnessContrast`の調整_
 
 ## まとめ
 
@@ -263,7 +267,7 @@ _ノード構成全体_
 ### 🤢**残念ポイント**🤢
 
 * ノードの組み合わせが難しい
-* 非常に動作が重い🐘🐘🐘
+* 処理が非常に重い🐘🐘🐘
 
 ## 参考動画
 https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
