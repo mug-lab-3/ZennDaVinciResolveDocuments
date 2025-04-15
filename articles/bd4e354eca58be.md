@@ -31,6 +31,10 @@ https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
 
 `VariBlur`を使用したhalftoneです
 
+![Dot](/images/articles/halftone/variblur/variblur-sample.png)
+_完成品_
+
+
 :::message
 画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
 :::
@@ -138,6 +142,9 @@ https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 # Particleによるhalftone
 
 `Particle`を使用したhalftoneです
+
+![Dot](/images/articles/halftone/variblur/particle-sample.png)
+_完成品_
 
 :::message
 画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
