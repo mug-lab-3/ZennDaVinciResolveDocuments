@@ -3,7 +3,7 @@ title: "【DaVinci Resolve】 Halftone(ハーフトーン)エフェクトを作�
 emoji: "💠"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [davinciresolve, lua, fusion]
-published: false
+published: true
 ---
 
 
@@ -12,115 +12,125 @@ published: false
 みなさん、こんにちは。[Mug](https://www.youtube.com/@MugLabVideoEditing)です🐼
 これは📽[DaVinci Resolve](https://www.blackmagicdesign.com/jp/products/davinciresolve)のFusionについての記事です
 
-印刷物において濃淡を表現する方法としてHalftone(ハーフトーン)というものがあります
+突然ですが、印刷物において濃淡を表現する方法として
+Halftone(ハーフトーン)というものがあります
 Halftoneではドットの密度によって濃淡を表現します🤔
 
-つまり暗いところは⚫大きなドットにし、明るいところはドットを描かず(インクを使わず)⬜紙色のまま
-中間色はドットを中間サイズのドットにすることでドット密度が下がり、白と黒が混ざったように見せるというものです
-※ この記事では黒色のドットのみ(Gray Scale)とします
+つまり暗いところは⚫大きなドットにし、明るいところは
+ドットを描かず(インクを使わず)⬜紙色のままにし、
+中間色はドットをサイズを明るさに応じて可変さすることで、ドット密度が下がり
+白と黒が混ざったように見せるというものです😤
 
-この記事ではDaVinci ResolveでこのHalftone(ハーフトーン)を再現する方法をいくつか紹介します✌️
+今回はDaVinci ResolveでこのHalftone(ハーフトーン)を再現する方法をいくつか紹介します
+特に3つ目のMugSimpleHalftoneを見てほしいです🙏🙏🙏
 
-https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
+:::message
+この記事では黒色のドット(Gray Scale)のHalftoneのみを扱います🙏
+:::
 
 :::message
 📽DaVinci Resolve 19 で確認しています
 :::
 
-# Variable Blurによるhalftone
+### 📜 参考情報 📜
+
+https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
+
+
+# 1️⃣ Variable Blurによるhalftone
 
 `VariBlur`を使用したhalftoneです
 
-![Dot](/images/articles/halftone/variblur/variblur-sample.png)
+![Halftone example using 'VariBlur'](/images/articles/halftone/variblur/variblur-sample.png)
 _完成品_
-
 
 :::message
 以降、画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
 :::
 
-
 ## 1. ドット作成
 
 `Shape`等を使用してドットを作成し
 
-![Dot](/images/articles/halftone/variblur/dot.png)
-_Dot_
+![Dot preview](/images/articles/halftone/variblur/dot.png)
+_Dot作成_
 
-![Dot](/images/articles/halftone/variblur/dot-node.png)
-_`sEllipse` → `sRender`_
+![Node connection order](/images/articles/halftone/variblur/dot-node.png)
+_ノード接続: `sEllipse` → `sRender`_
 
 `Transform`の`Edges`をMirrorに設定、サイズを縮小することで全面にドットを描画します
 
-![Dot](/images/articles/halftone/variblur/mirror-dots.png)
-_`Edges`=Mirror_
+![Edge settings](/images/articles/halftone/variblur/mirror-dots.png)
+_`Edges`をMirrorに設定_
 
-![Dot](/images/articles/halftone/variblur/mirror-node.png)
-_`Transform`_
+![Node connection order](/images/articles/halftone/variblur/mirror-node.png)
+_ノード接続: `sEllipse` → `sRender` → `Transform`_
 
-![Dot](/images/articles/halftone/variblur/small-dots.png)
-_Small-Dots_
+![Preview after dot size adjustment](/images/articles/halftone/variblur/small-dots.png)
+_サイズ調整後のプレビュー_
 
 `Transform`のサイズを👆 のような見た目になるように調整(小さく)します
 
-## 2. 可変ぼかし
+## 2. ドットぼかし
 
-VariBlurノードを使用して
-入力画像の明るさに応じてドットのぼかし具合を変更します
+`VariBlur`を使用して入力映像の明るさに応じたドットのぼかしを設定します
 
 `VariBlur`とは`Background`に接続したイメージを
-`Foreground`に接続したイメージの明るさに応じてボケ具合を変えるノードです
+`Foreground`に接続したイメージの明るさに応じてボケさせるノードです
 明るい部分ほど大きくボケます
 
-![Dot](/images/articles/halftone/variblur/variblur.png)
-_VariBlur_
+![Preview 'VariBlur'](/images/articles/halftone/variblur/variblur.png)
+_`VariBlur`プレビュー_
 
-![Dot](/images/articles/halftone/variblur/variblur-node.png)
-_`VariBlur` (Background: `Transform`, Foreground: `Input Image`)_
+![Node connection order](/images/articles/halftone/variblur/variblur-node.png)
+_ノード接続: `VariBlur` (Background: `Transform`, Foreground: `Input Image`)_
 
-👆 少し見づらいですが、Foregroundの入力映像(左側)の明るい部分でドットのボケが強くなってます
+👆 少し見づらいですが、Foregroundの入力映像(左側)の明るい部分でドットのボケが強くなってます👀
 
-**ボケが大きくなるほどドットが薄くなります**
+📢 **ボケが大きくなるほどドットが薄くなります**
 結果、明るいところはほとんどドットが見えなくなります
 
 上記画像のようになるように`VariBlur`の`Blur Size`を調整します
 
-このままだと後々扱いにくいので
-`InvertColor`を使い入力映像を反転させ、**暗いところほどドットがボケる**ように変更します
+ただ、このままだと後々扱いにくいので
+`InvertColor`を使い入力映像を反転させ、 **暗いところほどドットがボケる(=薄くなる)** ように変更します
 
-![Dot](/images/articles/halftone/variblur/invert-color.png)
-_InvertColor_
+![InvertColor preview](/images/articles/halftone/variblur/invert-color.png)
+_`InvertColor`プレビュー_
 
-![Dot](/images/articles/halftone/variblur/invert-color-node.png)
-_`Input Image` → `InvertColor` → `VariBlur`(Foreground)_
+![Node connection order](/images/articles/halftone/variblur/invert-color-node.png)
+_ノード接続: `Input Image` → `InvertColor` → `VariBlur`(Foreground)_
 
-## 3. 背景色
+## 3. 背景色設定
 
 `Background`をドットとマージします
 これがhalftoneの背景色となります、好きな色を設定します🤩
 
-![Dot](/images/articles/halftone/variblur/background.png)
-_Background_
+![Background preview](/images/articles/halftone/variblur/background.png)
+_`Background`プレビュー_
 
-![Dot](/images/articles/halftone/variblur/background-node.png)
-_`Merge` (Background: `Background`, Foreground: `Transform`)_
+![Node connection order](/images/articles/halftone/variblur/background-node.png)
+_ノード接続: `Merge` (Background: `Background`, Foreground: `Transform`)_
 
 ## 4. コントラスト調整
 
-`ColorCurves`をドットのコントラストを調整します
-👇カーブ設定を画像のような形にしてコントラストを上げます、入力画像に合わせて調整します💪
+`ColorCurves`を使用してドットのコントラストを調整します
+カーブ設定を👇下記画像のような形にしてコントラストを上げます
+これは入力映像に合わせて調整します💪
 
-![Dot](/images/articles/halftone/variblur/color-curves.png)
-_`ColorCurves`_
+![ColorCurves preview](/images/articles/halftone/variblur/color-curves.png)
+_`ColorCurves`プレビュー_
 
-![Dot](/images/articles/halftone/variblur/color-curves-node.png)
-_`VariBlur` → `ColorCurves` → `MediaOut`_
+![Node connection order](/images/articles/halftone/variblur/color-curves-node.png)
+_ノード接続: `VariBlur` → `ColorCurves` → `MediaOut`_
 
 ## まとめ
 
-これで完成です
+これで完成です🎉
 
-![Dot](/images/articles/halftone/variblur/variblur-all.png)
+### 全体像
+
+![All nodes](/images/articles/halftone/variblur/variblur-all.png)
 _ノード構成全体_
 
 ### 👍**イイねポイント**👍
@@ -131,19 +141,19 @@ _ノード構成全体_
 ### 🤢**残念ポイント**🤢
 
 * ノードの組み合わせが難しい
-* 各パラメータの調整が難しい
-* ドットサイズ変化が急
+* 各パラメータの調整が非常に難しい
+* ドットサイズ変化が急でラインが目立つ
 
-## 参考動画
+## 📺 参考動画(元ネタ)
 
 https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 
 
-# Particleによるhalftone
+# 2️⃣ Particleによるhalftone
 
 `Particle`を使用したhalftoneです
 
-![Dot](/images/articles/halftone/variblur/particle-sample.png)
+![Halftone example using 'Particle'](/images/articles/halftone/variblur/particle-sample.png)
 _完成品_
 
 :::message
@@ -153,17 +163,17 @@ _完成品_
 ## 1. Particle化
 
 `pImageEmitter`を使用して入力映像をparticle化します
-ただ接続しただけでは何も表示されないため
+ただ接続しただけでは何も表示されないため😑
 `pImageEmitter`の各パラメータを下記のように設定します
 
-### ⚙️ Controls ⚙️
+### ⚙️ Controlsページ ⚙️
 
 1. X Densityを0.1
 1. Y Densityを0.1
 1. Create Particles Every Frameにチェック✅
-1. Lifespanを1
+1. Lifespanを1.0
 
-### ⚙️ Style ⚙️
+### ⚙️ Styleページ ⚙️
 
 1. StyleをNGon
 1. NGon Sidesを12
@@ -176,20 +186,20 @@ _完成品_
 * `Create Prticles Every Frame`, `Lifespan`を設定することでParticleの生成を固定化します
 * ドット状になるようにStyleを設定します
 * `Size`を2.0にすることである程度暗いところがきれいに塗りつぶされるように設定します
- → これはお好みで調整です👍
+ → これはお好みで調整します👍
 
 👇 正しく設定できれば下記のように少し解像度が下がったような映像になります👀
 
-![pImageEmitter-Preview](/images/articles/halftone/variblur/pimageemitter.png)
-_`pImageEmitter`_
+![pImageEmitter preview](/images/articles/halftone/variblur/pimageemitter.png)
+_`pImageEmitter`プレビュー_
 
-![pImageEmitter-Node](/images/articles/halftone/variblur/pimageemitter-node.png)
+![Node connection order](/images/articles/halftone/variblur/pimageemitter-node.png)
 _ノード接続: `Input Image` → `pImageEmitter` → `pRender`_
 
-![pImageEmitter-Controls](/images/articles/halftone/variblur/pimageemitter-param1.png)
+![pImageEmitter controls settings](/images/articles/halftone/variblur/pimageemitter-param1.png)
 _`pImageEmitter` Controlsの設定_
 
-![pImageEmitter-Style](/images/articles/halftone/variblur/pimageemitter-param2.png)
+![pImageEmitter style settings](/images/articles/halftone/variblur/pimageemitter-param2.png)
 _`pImageEmitter` Styleの設定_
 
 ## 2. 輝度に応じたドットサイズ設定
@@ -197,48 +207,51 @@ _`pImageEmitter` Styleの設定_
 `pCustom`を使用してParticleごとに異なるサイズのドットとなるようにします
 各Particleの輝度を算出し、その輝度に比例してParticleサイズを設定します🤔
 
-具体的には`pCustom`でParticleページのSizeを下記のように設定します
+具体的には`pCustom`でParticleページのSizeを👇下記のように設定します
 
 ```lua
 size * (1 - ((r * 0.299) + (g * 0.587) + (b * 0.114)))
 ```
-これは輝度が最大のとき`size * 1.0`となります
+この計算式は輝度が最大のとき`size * 1.0`となります
 `size`とは`pImageEmitter`のStyleで設定したサイズです、つまり2.0です
 
 
-![pCustom-Preview](/images/articles/halftone/variblur/pcustom.png)
+![pCustom preview](/images/articles/halftone/variblur/pcustom.png)
 _`pCustom`プレビュー_
 
-![pCustom-Preview](/images/articles/halftone/variblur/pcustom-node.png)
+![Node connection order](/images/articles/halftone/variblur/pcustom-node.png)
 _ノード接続: `pImageEmitter` → `pCustom` → `pRender`_
 
-![pCustom-Preview](/images/articles/halftone/variblur/pcustom-param1.png)
+![pCustom settings](/images/articles/halftone/variblur/pcustom-param1.png)
 ✂️ --- 中略 ---✂️
-![pCustom-Preview](/images/articles/halftone/variblur/pcustom-param2.png)
+![pCustom size setting](/images/articles/halftone/variblur/pcustom-param2.png)
 _`pCustom` ParticleページSizeの設定_
 
 ## 3. ドット色設定
 
 `pCustom`を使用してParticleの色を上書き設定します
-Red, Green, Blueに好きな色を設定します
-※ ここでは黒にします
-※ 色の設定範囲は`0.0 - 1.0`です
+Red, Green, Blueに好きな色を設定します😍
+今回は黒にします
 
-![pCustom-Color](/images/articles/halftone/variblur/pcustom-color.png)
+:::message
+色の設定範囲は`0.0 - 1.0`です
+:::
+
+![pCustom color settings](/images/articles/halftone/variblur/pcustom-color.png)
 _`pCustom` ParticleページRed/Green/Blueの設定_
 
 
 ## 4. 背景色設定
 
 `Background`をマージして背景色を設定します
-これは好きな色を設定します
-※ ここでは白にします
+これは好きな色を設定します😍
+今回は白にします
 
-![Background-Color](/images/articles/halftone/variblur/particle-background.png)
+![Background color settings](/images/articles/halftone/variblur/particle-background.png)
 _`Background` の設定_
 
-![Background-Node](/images/articles/halftone/variblur/particle-background-node.png)
-_`Merge` (Background: `Background`, Foreground: `pRender`)_
+![Node connection order](/images/articles/halftone/variblur/particle-background-node.png)
+_ノード接続: `Merge` (Background: `Background`, Foreground: `pRender`)_
 
 :::message
 Foreground/Backgroundの接続先に注意❗
@@ -246,17 +259,19 @@ Foreground/Backgroundの接続先に注意❗
 
 ## 5. コントラスト調整
 
-`BrightnessContrast`を追加して入力映像のコントラストを調整します
-これは映像を見ながら好みのドット感になるように設定します
+`BrightnessContrast`を使用して入力映像のコントラストを調整します
+これは📽️映像を見ながら好みのドット感になるように設定します👀
 
-![Contrst](/images/articles/halftone/variblur/particle-contrast.png)
+![BrightnessContrast settings](/images/articles/halftone/variblur/particle-contrast.png)
 _`BrightnessContrast`の調整_
 
 ## まとめ
 
-これで完成です
+これで完成です🎉
 
-![Dot](/images/articles/halftone/variblur/particle-all.png)
+### 全体像
+
+![All nodes](/images/articles/halftone/variblur/particle-all.png)
 _ノード構成全体_
 
 ### 👍**イイねポイント**👍
@@ -266,13 +281,93 @@ _ノード構成全体_
 
 ### 🤢**残念ポイント**🤢
 
-* ノードの組み合わせが難しい
+* ノードの組み合わせが非常に難しい
 * 処理が非常に重い🐘🐘🐘
 
-## 参考動画
+## 📺 参考動画(元ネタ)
+
 https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
 
 
-# MugSimpleHalftoneによるhalftone
+# 3️⃣ 📢 MugSimpleHalftoneによるhalftone 💮💯
+
+`MugSimpleHalftone`を使用したhalftoneです
+これは私が作ったエフェクトで、実はこの記事はこれを自慢するのが目的の記事です🤫
+
+![Halftone example using 'MugSimpleHalftone'](/images/articles/halftone/variblur/msh-sample.png)
+_完成品_
+
+## 1. インストール
+
+わたしのGitHubページからfuseファイルをダウンロードし、💻各OSごとの格納先に保存します
+
+### 🗒️ Fuseファイル
+
+https://github.com/mug-lab-3/DaVinciResolveEffects/blob/main/fuses/MugSimpleHalftone.fuse
+
+
+### 📁 各OSごとのFuseファイル格納先
+
+| OS | Path | 
+| ---- | ---- |
+| macOS | ~/Library/Application Support/Blackmagic Design/DaVinci Resolve/Support/Fusion/Fuses |
+| Windows |%appdata%\Blackmagic Design\DaVinci Resolve\Support\Fusion\Fuses |
+| Linux |/.local/share/DaVinciResolve/Fusion/Fuses |
+
+### 参考動画
+
+よくわからないー😭という方はこちらの動画でインストール方法を説明しているので
+見ていただけるとわかってもらえるかなと思います😊
+
+https://youtu.be/U4UI3_Jklro
+
+## 2. 接続
+
+インストールするとエフェクトの`Tools → Fuses → Mug`に`MugSimpleHalftone`というものが追加されます
+これを接続します👍
+
+![Effect path](/images/articles/halftone/variblur/msh-effects-path.png)
+_エフェクトパネルからの追加_
+
+`Select Tool`(Shift + Space)からはMSHの省略名で検索できます👍
+
+![Effect path](/images/articles/halftone/variblur/msh-shortcut.png)
+_`Select Tool` からの追加_
+
+![Effect path](/images/articles/halftone/variblur/msh-preview.png)
+_ノード接続: `Input Image` → `MugSimpleHalftone` → `MediaOut`_
+
+## 3. 調整
+
+映像を見ながら`MugSimpleHalftone`のインスペクタで各パラメータを調整します
+直感的に設定できる(と思う)のでお好みで調整します😊
+
+![MugSimpleHalftone settings](/images/articles/halftone/variblur/msh-settings.png)
+_設定例_
+
+## まとめ
+
+これで完成です😮🎉
+
+### 全体像
+
+![All nodes](/images/articles/halftone/variblur/msh-all.png)
+_ノード構成全体_
+
+### 👍**イイねポイント**👍
+
+* きれいな円形ドット
+* 正確なhalftone表現
+* 非常に軽い動作
+* 非常にシンプルなノード構成
+* 直感的なドット調整
+
+### 🤢**残念ポイント**🤢
+
+* Fuseファイルのインストールが必要
 
 # 🐔おわりに
+
+1, 2で紹介した方法で満足できなかったので自分でエフェクトを作りました
+`MugSimpleHalftone`は結構頑張って作ったので使ってもらえるとすごく嬉しいです☺️
+ソースコードを公開しているのでFuseの参考にもどうぞ！
