@@ -15,11 +15,13 @@ published: false
 印刷物において濃淡を表現する方法としてHalftone(ハーフトーン)というものがあります
 Halftoneではドットの密度によって濃淡を表現します🤔
 
-つまり暗いところは⚫黒で塗りつぶすようにし、明るいところはドットを描かず(インクを使わず)⬜紙色のまま
-中間色はドットをまばらにすることで白と黒が混ざったように見せるというものです
-※ この記事では黒色のドットのみとします
+つまり暗いところは⚫大きなドットにし、明るいところはドットを描かず(インクを使わず)⬜紙色のまま
+中間色はドットを中間サイズのドットにすることでドット密度が下がり、白と黒が混ざったように見せるというものです
+※ この記事では黒色のドットのみ(Gray Scale)とします
 
 この記事ではDaVinci ResolveでこのHalftone(ハーフトーン)を再現する方法をいくつか紹介します✌️
+
+https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
 
 :::message
 📽DaVinci Resolve 19 で確認しています
@@ -72,7 +74,7 @@ _VariBlur_
 ![Dot](/images/articles/halftone/variblur/variblur-node.png)
 _`VariBlur` (Background: `Transform`, Foreground: `Input Image`)_
 
-👆 少し見づらいですが、Foregroundの入力画像(左側)の明るい部分でドットのボケが強くなってます
+👆 少し見づらいですが、Foregroundの入力映像(左側)の明るい部分でドットのボケが強くなってます
 
 **ボケが大きくなるほどドットが薄くなります**
 結果、明るいところはほとんどドットが見えなくなります
@@ -80,7 +82,7 @@ _`VariBlur` (Background: `Transform`, Foreground: `Input Image`)_
 上記画像のようになるように`VariBlur`の`Blur Size`を調整します
 
 このままだと後々扱いにくいので
-`InvertColor`を使い入力画像を反転させ、**暗いところほどドットがボケる**ように変更します
+`InvertColor`を使い入力映像を反転させ、**暗いところほどドットがボケる**ように変更します
 
 ![Dot](/images/articles/halftone/variblur/invert-color.png)
 _InvertColor_
@@ -126,7 +128,7 @@ _ノード構成全体_
 
 * ノードの組み合わせが難しい
 * 各パラメータの調整が難しい
-* 垂直方向のラインが目立つ
+* ドットサイズ変化が急
 
 ## 参考動画
 
@@ -140,6 +142,79 @@ https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 :::message
 画像が小さくて見えない場合は画像だけを別のタブで開いて見てください🙏
 :::
+
+## 1. Particle化
+
+`pImageEmitter`を使用して入力映像をparticle化します
+ただ接続したたけど何も表示されないため`pImageEmitter`の
+各パラメータを下記のように設定します
+
+⚙️ Controls ⚙️
+1. Densityを0.1
+1. Create Particles Every Frameにチェック
+1. Lifespanを1
+
+⚙️ Style ⚙️
+1. StyleをNGon
+1. NGon Sidesを12
+1. Sizeを2.0
+
+* Densityはドット分割数です、大きくするとより細かなドットとなります
+* `Create Prticles Every Frame`, `Lifespan`を設定することでParticleの生成を固定化します
+* ドット状になるようにStyleを設定します
+* SizeはDensityに合わせてちょうどドットで埋まるようなサイズに設定します
+ → Densityを変更したらSizeも変更します
+
+正しく設定できれば下記のようになります✨
+
+![pImageEmitter-Preview](/images/articles/halftone/variblur/pimageemitter.png)
+_`pImageEmitter`_
+
+![pImageEmitter-Node](/images/articles/halftone/variblur/pimageemitter-node.png)
+_`Input Image` → `pImageEmitter` → `pRender`_
+
+![pImageEmitter-Controls](/images/articles/halftone/variblur/pimageemitter-param1.png)
+_`pImageEmitter` Controlsの設定_
+
+![pImageEmitter-Style](/images/articles/halftone/variblur/pimageemitter-param2.png)
+_`pImageEmitter` Styleの設定_
+
+## 2. 輝度に応じたドットサイズ設定
+
+pCustomを使用してParticleごとに異なるサイズになるようにします
+各Particleの輝度を算出し、その輝度に比例してParticleサイズを設定します
+
+具体的には`pCustom`のParticleページのSizeを下記のように設定します
+
+```lua
+size * (1 - ((r * 0.299) + (g * 0.587) + (b * 0.114)))
+```
+これは輝度が最大のとき`size * 1.0`となります
+`size`とは`pImageEmitter`のStyleで設定したサイズです、つまり2.0です
+
+
+![pCustom-Preview](/images/articles/halftone/variblur/pcustom.png)
+_`pCustom`_
+
+![pCustom-Preview](/images/articles/halftone/variblur/pcustom-node.png)
+_`pImageEmitter` → `pCustom` → `pRender`_
+
+![pCustom-Preview](/images/articles/halftone/variblur/pcustom-param1.png)
+✂️ --- 中略 ---✂️
+![pCustom-Preview](/images/articles/halftone/variblur/pcustom-param2.png)
+_`pCustom` ParticleページSizeの設定_
+
+
+
+## 3. ドット色設定
+
+`pCustom`を使用してParticleの色を上書き設定します
+Red, Green, Blueに好きな色を設定します
+※ ここでは黒にします
+※ 色の設定範囲は`0.0 - 1.0`です
+
+![pCustom-Color](/images/articles/halftone/variblur/pcustom-color.png)
+_`pCustom` ParticleページRed/Green/Blueの設定_
 
 
 ## 参考動画
