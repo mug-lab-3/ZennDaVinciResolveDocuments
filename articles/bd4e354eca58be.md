@@ -120,9 +120,9 @@ _`ColorCurves`プレビュー_
 ![Node connection order](/images/articles/halftone/variblur/color-curves-node.png)
 _ノード接続: `VariBlur` → `ColorCurves` → `MediaOut`_
 
-## 🗒️ まとめ
-
 これで完成です🎉
+
+## 🗒️ まとめ
 
 ### 全体像
 
@@ -257,9 +257,9 @@ Foreground/Backgroundの接続先に注意❗
 ![BrightnessContrast settings](/images/articles/halftone/variblur/particle-contrast.png)
 _`BrightnessContrast`の調整_
 
-## 🗒️ まとめ
-
 これで完成です🎉
+
+## 🗒️ まとめ
 
 ### 全体像
 
@@ -343,9 +343,9 @@ _ノード接続: `Input Image` → `MugSimpleHalftone` → `MediaOut`_
 ![MugSimpleHalftone settings](/images/articles/halftone/variblur/msh-settings.png)
 _設定例_
 
-## 🗒️ まとめ
-
 これで完成です😮🎉
+
+## 🗒️ まとめ
 
 ### 全体像
 
