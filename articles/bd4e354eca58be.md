@@ -37,14 +37,14 @@ Halftoneではドットの密度によって濃淡を表現します🤔
 https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
 
 
-# 1️⃣ Variable Blurによるhalftone
+# 1 Variable Blurによるhalftone
 
 `VariBlur`を使用したhalftoneです
 
 ![Halftone example using 'VariBlur'](/images/articles/halftone/variblur/variblur-sample.png)
 _完成品_
 
-## 1. ドット作成
+## 1.1 ドット作成
 
 `Shape`等を使用してドットを作成し
 
@@ -67,7 +67,7 @@ _サイズ調整後のプレビュー_
 
 `Transform`のサイズを👆 のような見た目になるように調整(小さく)します
 
-## 2. ドットぼかし
+## 1.2 ドットぼかし
 
 `VariBlur`を使用して入力映像の明るさに応じたドットのぼかしを設定します
 
@@ -97,7 +97,7 @@ _`InvertColor`プレビュー_
 ![Node connection order](/images/articles/halftone/variblur/invert-color-node.png)
 _ノード接続: `Input Image` → `InvertColor` → `VariBlur`(Foreground)_
 
-## 3. 背景色設定
+## 1.3 背景色設定
 
 `Background`をドットとマージします
 これがhalftoneの背景色となります、好きな色を設定します🤩
@@ -108,7 +108,7 @@ _`Background`プレビュー_
 ![Node connection order](/images/articles/halftone/variblur/background-node.png)
 _ノード接続: `Merge` (Background: `Background`, Foreground: `Transform`)_
 
-## 4. コントラスト調整
+## 1.4 コントラスト調整
 
 `ColorCurves`を使用してドットのコントラストを調整します
 カーブ設定を👇下記画像のような形にしてコントラストを上げます
@@ -122,7 +122,7 @@ _ノード接続: `VariBlur` → `ColorCurves` → `MediaOut`_
 
 これで完成です🎉
 
-## 🗒️ まとめ
+## 1.5 まとめ
 
 ### 全体像
 
@@ -145,14 +145,14 @@ _ノード構成全体_
 https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 
 
-# 2️⃣ Particleによるhalftone
+# 2 Particleによるhalftone
 
 `Particle`を使用したhalftoneです
 
 ![Halftone example using 'Particle'](/images/articles/halftone/variblur/particle-sample.png)
 _完成品_
 
-## 1. Particle化
+## 2.1 Particle化
 
 `pImageEmitter`を使用して入力映像をparticle化します
 ただ接続しただけでは何も表示されないため😑
@@ -194,7 +194,7 @@ _`pImageEmitter` Controlsの設定_
 ![pImageEmitter style settings](/images/articles/halftone/variblur/pimageemitter-param2.png)
 _`pImageEmitter` Styleの設定_
 
-## 2. 輝度に応じたドットサイズ設定
+## 2.2 輝度に応じたドットサイズ設定
 
 `pCustom`を使用してParticleごとに異なるサイズのドットとなるようにします
 各Particleの輝度を算出し、その輝度に比例してParticleサイズを設定します🤔
@@ -219,7 +219,7 @@ _ノード接続: `pImageEmitter` → `pCustom` → `pRender`_
 ![pCustom size setting](/images/articles/halftone/variblur/pcustom-param2.png)
 _`pCustom` ParticleページSizeの設定_
 
-## 3. ドット色設定
+## 2.3 ドット色設定
 
 `pCustom`を使用してParticleの色を上書き設定します
 Red, Green, Blueに好きな色を設定します😍
@@ -233,7 +233,7 @@ Red, Green, Blueに好きな色を設定します😍
 _`pCustom` ParticleページRed/Green/Blueの設定_
 
 
-## 4. 背景色設定
+## 2.4 背景色設定
 
 `Background`をマージして背景色を設定します
 これは好きな色を設定します😍
@@ -249,7 +249,7 @@ _ノード接続: `Merge` (Background: `Background`, Foreground: `pRender`)_
 Foreground/Backgroundの接続先に注意❗
 :::
 
-## 5. コントラスト調整
+## 2.5 コントラスト調整
 
 `BrightnessContrast`を使用して入力映像のコントラストを調整します
 これは📽️映像を見ながら好みのドット感になるように設定します👀
@@ -259,7 +259,7 @@ _`BrightnessContrast`の調整_
 
 これで完成です🎉
 
-## 🗒️ まとめ
+## 2.6 まとめ
 
 ### 全体像
 
@@ -281,7 +281,7 @@ _ノード構成全体_
 https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
 
 
-# 3️⃣ 📢 MugSimpleHalftoneによるhalftone 💮💯
+# 3 MugSimpleHalftoneによるhalftone
 
 `MugSimpleHalftone`を使用したhalftoneです
 これは私が作ったエフェクトで、実はこの記事はこれを自慢するのが目的の記事です🤫
@@ -289,7 +289,7 @@ https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
 ![Halftone example using 'MugSimpleHalftone'](/images/articles/halftone/variblur/msh-sample.png)
 _完成品_
 
-## 1. インストール
+## 3.1 インストール
 
 わたしのGitHubページからfuseファイルをダウンロードし、💻各OSごとの格納先に保存します
 
@@ -313,7 +313,7 @@ https://github.com/mug-lab-3/DaVinciResolveEffects/blob/main/fuses/MugSimpleHalf
 
 https://youtu.be/U4UI3_Jklro
 
-## 2. 接続
+## 3.2 接続
 
 インストールするとエフェクトの`Tools → Fuses → Mug`に`MugSimpleHalftone`というものが追加されます
 これを接続します👍
@@ -329,7 +329,7 @@ _`Select Tool` からの追加_
 ![Effect path](/images/articles/halftone/variblur/msh-preview.png)
 _ノード接続: `Input Image` → `MugSimpleHalftone` → `MediaOut`_
 
-## 3. 調整
+## 3.3 調整
 
 映像を見ながら`MugSimpleHalftone`のインスペクタで各パラメータを調整します
 直感的に設定できる(と思う)のでお好みで調整します😊
@@ -345,7 +345,7 @@ _設定例_
 
 これで完成です😮🎉
 
-## 🗒️ まとめ
+## 3.4 まとめ
 
 ### 全体像
 
