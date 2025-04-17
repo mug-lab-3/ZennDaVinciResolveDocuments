@@ -44,6 +44,9 @@ https://ja.wikipedia.org/wiki/%E7%B6%B2%E7%82%B9
 ![Halftone example using 'VariBlur'](/images/articles/halftone/variblur/variblur-sample.png)
 _完成品_
 
+> 📺 参考動画(元ネタ)
+> @[card](https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF)
+
 ## 1.1 ドット作成
 
 `Shape`等を使用してドットを作成し
@@ -140,10 +143,6 @@ _ノード構成全体_
 * 各パラメータの調整が非常に難しい
 * ドットサイズ変化が急でラインが目立つ
 
-## 📺 参考動画(元ネタ)
-
-https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
-
 
 # 2 Particleによるhalftone
 
@@ -151,6 +150,10 @@ https://youtu.be/oeXPrPilrg8?si=v-3qiQ1e314lERoF
 
 ![Halftone example using 'Particle'](/images/articles/halftone/variblur/particle-sample.png)
 _完成品_
+
+> 📺 参考動画(元ネタ)
+> @[card](https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R)
+
 
 ## 2.1 Particle化
 
@@ -276,11 +279,6 @@ _ノード構成全体_
 * ノードの組み合わせが非常に難しい
 * 処理が非常に重い🐘🐘🐘
 
-## 📺 参考動画(元ネタ)
-
-https://youtu.be/lOfIFvMmFe8?si=zpGnpxEsbkW8v37R
-
-
 # 3 MugSimpleHalftoneによるhalftone
 
 `MugSimpleHalftone`を使用したhalftoneです
@@ -311,7 +309,7 @@ https://github.com/mug-lab-3/DaVinciResolveEffects/blob/main/fuses/MugSimpleHalf
 よくわからないー😭という方はこちらの動画でインストール方法を説明しているので
 見ていただけるとわかってもらえるかなと思います😊
 
-https://youtu.be/U4UI3_Jklro
+@[card](https://youtu.be/U4UI3_Jklro)
 
 ## 3.2 接続
 
