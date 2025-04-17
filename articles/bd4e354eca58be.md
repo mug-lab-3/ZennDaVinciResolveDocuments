@@ -7,7 +7,7 @@ published: true
 ---
 
 
-# 🐥はじめに
+# 🐥 はじめに
 
 みなさん、こんにちは。[Mug](https://www.youtube.com/@MugLabVideoEditing)です🐼
 これは📽[DaVinci Resolve](https://www.blackmagicdesign.com/jp/products/davinciresolve)のFusionについての記事です
@@ -132,12 +132,12 @@ _ノード接続: `VariBlur` → `ColorCurves` → `MediaOut`_
 ![All nodes](/images/articles/halftone/variblur/variblur-all.png)
 _ノード構成全体_
 
-### 👍**イイねポイント**👍
+### 👍 イイねポイント
 
 * それっぽい見た目
 * 処理が軽め
 
-### 🤢**残念ポイント**🤢
+### 🤢 残念ポイント
 
 * ノードの組み合わせが難しい
 * 各パラメータの調整が非常に難しい
@@ -269,12 +269,12 @@ _`BrightnessContrast`の調整_
 ![All nodes](/images/articles/halftone/variblur/particle-all.png)
 _ノード構成全体_
 
-### 👍**イイねポイント**👍
+### 👍 イイねポイント
 
 * きれいな円形ドット
 * 正確なhalftone表現
 
-### 🤢**残念ポイント**🤢
+### 🤢 残念ポイント
 
 * ノードの組み合わせが非常に難しい
 * 処理が非常に重い🐘🐘🐘
@@ -350,7 +350,7 @@ _設定例_
 ![All nodes](/images/articles/halftone/variblur/msh-all.png)
 _ノード構成全体_
 
-### 👍**イイねポイント**👍
+### 👍 イイねポイント
 
 * きれいな円形ドット
 * 正確なhalftone表現
@@ -358,11 +358,11 @@ _ノード構成全体_
 * 非常にシンプルなノード構成
 * 直感的なドット調整
 
-### 🤢**残念ポイント**🤢
+### 🤢 残念ポイント
 
 * Fuseファイルのインストールが必要
 
-# 🐔おわりに
+# 🐔 おわりに
 
 1, 2で紹介した方法で満足できなかったので自分でエフェクトを作りました
 `MugSimpleHalftone`は結構頑張って作ったので使ってもらえるとすごく嬉しいです☺️
