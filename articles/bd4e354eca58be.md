@@ -9,7 +9,7 @@ published: true
 
 # 🐥 はじめに
 
-みなさん、こんにちは。[Mug](https://www.youtube.com/@MugLabVideoEditing)です🐼
+みなさん、こんにちは。[Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
 
 本記事では印刷物などで見られるHalftone（ハーフトーン）表現を、📽[DaVinci Resolve](https://www.blackmagicdesign.com/jp/products/davinciresolve) の Fusion で再現する方法を紹介します 
 

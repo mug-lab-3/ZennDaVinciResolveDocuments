@@ -8,7 +8,7 @@ published: false
 
 # 🐥はじめに
 
-みなさん、こんにちは。[Mug](https://www.youtube.com/@MugLabVideoEditing)です🐼
+みなさん、こんにちは。[Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
 FFmpegを使って __無料__ で __簡単__ に、動画から文字起こしをする方法の記事です
 また、文字起こし結果を📹DaVinci Resolveで使用する方法についても紹介します🫡 
 

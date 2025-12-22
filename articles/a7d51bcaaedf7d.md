@@ -8,7 +8,7 @@ published: true
 
 # 🐥はじめに
 
-みなさん、こんにちは。[Mug](https://www.youtube.com/@MugLabVideoEditing)です🐼
+みなさん、こんにちは。[Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
 これは📽[DaVinci Resolve](https://www.blackmagicdesign.com/jp/products/davinciresolve)のFusionについての記事です
 
 Fusion では`SetData`/`GetData`というAPIがあり、これを使用すると
