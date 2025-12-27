@@ -201,6 +201,12 @@ ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
 :destination=output.srt\
 :format=srt" -f null -
 ```
+:::message
+Macで実行するときは、初回に以下が必要になる場合があります。
+- Gatekeeperでブロックされたら`xattr -d com.apple.quarantine ./ffmpeg`で解除する
+- 実行権限が無いときは`chmod +x ./ffmpeg`を付与する
+- `ffmpeg`が見つからないと言われたら`./ffmpeg`のように前に`./`を付ける
+:::
 ![コマンド入力](/images/articles/whisper/exec-command.png)
 *コマンド入力*
 
