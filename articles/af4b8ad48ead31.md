@@ -3,7 +3,7 @@ title: "FFmpegで文字起こし"
 emoji: "✒️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [ffmpeg, whisper, davinciresolve]
-published: false
+published: true
 ---
 
 # 🐥はじめに
