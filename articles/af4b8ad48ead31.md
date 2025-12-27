@@ -183,7 +183,7 @@ https://ffmpeg.org/ffmpeg-filters.html#Examples-38
 調整後は以下のようになります。`video.mp4`は文字起こししたいファイル、`ggml-large-v3.bin`は使用したいモデルにそれぞれ置き換えてください。
 
 ```bash
-./ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
+ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
 :queue=20\
 :destination=output.srt\
 :format=srt" -f null -
@@ -196,7 +196,7 @@ https://ffmpeg.org/ffmpeg-filters.html#Examples-38
 正常に完了すると、`output.srt`として文字起こし結果が出力されます。
 
 ```bash
-./ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
+ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
 :queue=20\
 :destination=output.srt\
 :format=srt" -f null -
