@@ -9,7 +9,8 @@ published: false
 # 🐥はじめに
 
 みなさん、こんにちは。[Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
-これはFFmpegを使って動画から文字起こしをする方法の記事です
+これはDaVinci Resolveで読み込むことを前提として
+FFmpegを使って動画から文字起こしをする方法の記事です
 
 FFmpeg 8.0 (Huffman)からフィルターにWhisperが追加されました
 これによって、音声を分離したり変換したりすることなく、動画から
@@ -201,7 +202,7 @@ https://ffmpeg.org/ffmpeg-filters.html#Examples-38
 
 
 以下のようになります
-ただし、`-i`の部分は文字起こししたいファイルへのパス
+ただし、`video.mp4`の部分は文字起こししたいファイルへのパス
 `ggml-large-v3.bin`使用したいモデルへ __それぞれ置き換える必要があります__
 
 ```bash
@@ -211,17 +212,149 @@ ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
 :format=srt" -f null -
 ```
 
-### 実行例(Windows)
+# 文字起こし実行
 
 では文字起こしをやってみます🥳
-先ほど組み立てたコマンドをターミナルで実行すればよいのですが
-Windowsの場合はbatファイルを用意したのでこれを実行するだけで良いです😊
+ターミナルを起動して`FFmpeg`を展開したディレクトリ内の`bin`ディレクトリに移動します
+その状態で前の章で組み立てた以下のコマンドを実行すればOKです🙆‍♀️
+正常に完了すると、`output.srt`として文字起こし結果が出力されます
 
-Macの方はごめんなさい🙏
-先ほど組み立てたコマンドを実行してください。。。
+```
+ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
+:queue=20\
+:destination=output.srt\
+:format=srt" -f null -
+```
+![コマンド入力](/images/articles/whisper/exec-command.png)
+*コマンド入力*
 
-run-ffmpeg-wisper.batをダウンロードして
-`FFmpeg`を展開したディレクトリに置きます
+![実行完了](/images/articles/whisper/done-command.png)
+*実行完了*
+
+![文字起こし結果](/images/articles/whisper/output-file.png)
+*文字起こし結果*
+
+ただ、コマンド実行に慣れていない方のためにbatファイルを用意しました😤
+__Windowsの場合は__ これを実行するだけで良いです！！
+
+Macの方は、、、ごめんなさいー🙏🙏🙏
+ターミナルでコマンドを実行してください。。。
+
+## Windows用バッチファイル
+
+[run-ffmpeg-wisper.bat](https://github.com/mug-lab-3/ZennDaVinciResolveDocuments/blob/main/images/articles/whisper/run-ffmpeg-wisper.bat)をダウンロードして、`FFmpeg`を展開したディレクトリに置きます
+
+![batファイルのダウンロード](/images/articles/whisper/download-bat.png)
+*batファイルのダウンロード*
 
 ![run-ffmpeg-wisper.bat](/images/articles/whisper/put-bat.png)
 *run-ffmpeg-wisper.bat*
+
+
+batファイルの準備ができたらこのbatに向かって
+文字起こししたい動画をドラッグ&ドロップします
+
+![ドラッグ&ドロップ](/images/articles/whisper/dad-to-bat.png)
+*ドラッグ&ドロップ*
+
+
+batファイルを正しく配置できていればターミナルが起動して
+使用するモデルを聞かれるので好きな🤖モデル番号を入力します
+(modelsディレクトリにおいてあるモデルが選択肢になります)
+
+![モデル選択](/images/articles/whisper/select-model.png)
+*モデル選択*
+
+
+モデルを選択すると以下のように表示されるので
+`Enter`を押すと文字起こしが開始されます🤩
+
+![文字起こし開始](/images/articles/whisper/ready-to-exec.png)
+*文字起こし開始*
+
+
+しばらく待っていると文字起こしが完了します
+以下のように出ていればOKです
+
+![文字起こし完了](/images/articles/whisper/done-exec.png)
+*文字起こし完了*
+
+
+正常に文字起こしが完了すると`srt`ディレクトリが作られます
+その中に文字起こし結果ファイルが出来上がります🔥
+
+![srtディレクトリ](/images/articles/whisper/srt-directory.png)
+*srtディレクトリ*
+
+![文字起こし結果](/images/articles/whisper/bat-output-file.png)
+*文字起こし結果*
+
+# 文字起こし結果の確認
+
+文字起こしが完了すると`srt`ファイルが作られます
+これは字幕ファイルと呼ばれるもので、テキストファイルになっています
+(📝テキストエディタで開けます)
+
+*SRTファイルフォーマット*
+
+```text
+テキスト番号
+開始時間 --> 終了時間
+内容
+```
+*例*
+![srtファイル](/images/articles/whisper/result.png)
+*srtファイル*
+
+文字起こし結果は完ぺきではないので
+多少間違っているところがあります🥺
+気になる場合は✋手作業で頑張って直したり、🤖AIを使って直したりします
+どちらの場合でも修正するのは __内容__ の部分だけです
+それ以外ところを修正すると、ほかのアプリから読み込めなくなる可能性があります
+
+:::message
+テキストの区切り方が変なところで区切られてて気になる場合
+`queue=`の値をもっと大きくすると自然な区切りに近づきます(多分🙈)
+お試しファイルだと20より100とかの方がきれいな気がしました💦💦
+
+👇batファイルの場合は以下を変更
+![batファイル](/images/articles/whisper/change-queue-bat.png)
+*batファイル*
+:::
+
+
+# DaVinci Resolveで読み込み
+
+文字起こし結果の`srt`ファイルはDaVinci Resolveで読み込んで
+字幕として設定することができます✋
+
+メディアプールに`srt`ファイルをドラッグ&ドロップ
+
+![srtファイル登録](/images/articles/whisper/add-sub-to-media-pool.png)
+*srtファイル登録*
+
+登録した`srt`ファイルを`タイムライン`にドラッグ&ドロップ
+
+![タイムラインへドラッグ&ドロップ](/images/articles/whisper/sub-to-timeline.png)
+*タイムラインへドラッグ&ドロップ*
+
+![字幕トラック追加](/images/articles/whisper/added-subtitle.png)
+*字幕トラック追加*
+
+:::message
+字幕開始位置は手動で合わせる必要があります
+:::
+
+これで完成です💮🎓
+
+# 🐔 おわりに
+
+簡単といいつつとても長くなってしまいました💦
+この方法のポイントはpythonのインストールとスクリプトの作成が不要なところです
+なのでプログラミングの知識がなくてもできます！！
+
+また、これができるなら文字起こしのために
+DaVinci Resolve有料版ことDaVinci Resolve Studioは要らない？
+と思うかもしれませんが、有料版では文字起こし結果と連動して
+文字ベースで編集する機能があったりして、それが💪強力で💃魅力的ですので、
+今回の内容で完全に置き換えられるわけではないです
