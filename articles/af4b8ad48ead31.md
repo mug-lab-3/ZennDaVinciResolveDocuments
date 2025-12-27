@@ -45,12 +45,12 @@ FFmpeg公式サイトの[ダウンロードページ](https://www.ffmpeg.org/dow
 ![OS選択](/images/articles/whisper/select-operating-system.png)
 *OS選択*
 
-OSを選択するとダウンロード元リンクが表示されます。どれを選んでもファイル自体は同じなので、適当で大丈夫です🤭
+OSを選択するとダウンロード元リンクが表示されます。どれを選んでもファイル自体は同じなので、どれでも大丈夫です🤭
 
 ![ダウンロード元選択(Windowsの例)](/images/articles/whisper/select-download-link-windows.png)
 *ダウンロード元選択(Windowsの例)*
 
-リンク先によってダウンロード方法が異なるので、下記を参考にしてください🙏  
+リンク先によってダウンロード方法が異なるので、下記の画像を参考にしてください🙏  
 複数選択肢がある場合は`Full`や`Main`と書かれているものを選ぶと安心です👀
 
 ![ダウンロード元リンク(Windowsの例)](/images/articles/whisper/download-link-windows.png)
