@@ -11,36 +11,40 @@ published: true
 みなさん、こんにちは。[Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼  
 本記事はDaVinci Resolveでの利用を前提に、FFmpegを使って動画から文字起こしを行う手順をまとめています。
 
-FFmpeg 8.0 (Huffman)ではWhisperフィルターが追加され、音声を分離したり変換したりしなくても動画から直接文字起こしができるようになりました😊🎉
+FFmpeg 8.0 (Huffman)ではWhisperフィルターが追加され、音声を分離したり変換したり
+難しいプログラミングをしなくても動画から簡単に文字起こしができるようになりました😊🎉
 
 ## FFmpegとは？
 
 https://ffmpeg.org/
 
 `FFmpeg`は動画や音声の変換や切り出しなど幅広い処理に対応した、とても有名なソフトウェアです。
-無料で利用できます💰👌
+無料で利用できます0️⃣💴👍
 
 ## Whisper(whisper.cpp)とは？
 
 https://github.com/ggml-org/whisper.cpp
 
-OpenAIが作った音声認識AIモデル🤖がWhisperです。このモデルを使うと音声をテキスト化できます。
-それをC++で実装したものがwhisper.cppで、こちらも無料です💰👌
+OpenAI[^1]が作った音声認識AIモデル🤖がWhisperです。このモデルを使うと音声をテキスト化できます。
+それをC++で実装したものがwhisper.cppで、こちらも無料です0️⃣💴👍
 
-## つまりどういうこと？🤔
+[^1]: OpenAIは🤖ChatGPTを作っている会社です
 
-無料で簡単に動画ファイルから文字起こしができるということです！🥳
+## つまりどういうことなの？🤔
+
+無料アプリを使って、簡単に動画ファイルから文字起こしができるということです！🥳🎆
 
 # 準備
 
-ここからは準備です。
-難しいことはありませんが、少しだけ段取りが必要です🙏  
-文字起こしを行うには`FFmpeg`と`whisper.cpp`のモデルを用意します。
+まずは準備です🧘‍♀️
+文字起こしを行うには`FFmpeg`と`whisper.cpp`のモデルが必要です。
 どちらも🌐インターネットからダウンロードできます！
 
 ## FFmpeg
 
-FFmpeg公式サイトの[ダウンロードページ](https://www.ffmpeg.org/download.html)から、使用しているOSに合うものをダウンロードします。
+FFmpeg公式サイト[^2]の[**ダウンロードページ**](https://www.ffmpeg.org/download.html)から、使用しているOSに合うものをダウンロードします。
+
+[^2]: https://ffmpeg.org/
 
 ![OS選択](/images/articles/whisper/select-operating-system.png)
 *OS選択*
@@ -51,7 +55,7 @@ OSを選択するとダウンロード元リンクが表示されます。どれ
 *ダウンロード元選択(Windowsの例)*
 
 リンク先によってダウンロード方法が異なるので、下記の画像を参考にしてください🙏  
-複数選択肢がある場合は`Full`や`Main`と書かれているものを選ぶと安心です👀
+複数選択肢がある場合は`Full`や`Main`と書かれているものを選ぶようにします👀
 
 ![ダウンロード元リンク(Windowsの例)](/images/articles/whisper/download-link-windows.png)
 *ダウンロードファイル(Windowsの例)*
@@ -59,7 +63,7 @@ OSを選択するとダウンロード元リンクが表示されます。どれ
 ![ダウンロード元リンク(Macの例)](/images/articles/whisper/download-link-mac.png)
 *ダウンロード元選択(Macの例)*
 
-ダウンロードできたら展開します。ここからはWindowsでの手順を例に説明します。
+ダウンロードできたら展開します。ここからは __Windows__ での手順を例に説明します。
 
 ダウンロードしたファイルを右クリックして`すべて展開...`を選択します。
 
@@ -92,10 +96,12 @@ OSを選択するとダウンロード元リンクが表示されます。どれ
 
 >Models are multilingual unless the model name includes .en. Models ending in -q5_0 are quantized. Models ending in -tdrz support local diarization (marking of speaker turns) using tinydiarize. 
 
-モデルがたくさんあって迷うと思いますが、whisper.cppでは上記のように特徴が説明されています。  
+モデルがたくさんあって迷うと思いますが😵‍💫
+whisper.cppでは上記のように特徴が説明されています。  
 また、大きいモデルほど精度は上がりますが、CPU負荷とメモリ消費も大きくなります。  
-今回は[公式READMEのMemory usage表](https://github.com/ggml-org/whisper.cpp#memory-usage)を参考に、.en付きや量子化モデルを外して使いやすい3モデルをピックアップしました。
-扱いやすいモデルをこの中から選んでダウンロードします。
+今回は[公式READMEのMemory usage表](https://github.com/ggml-org/whisper.cpp#memory-usage)を参考に、.en付きや量子化モデルを外して
+使いやすい3モデルをピックアップしました😤
+今回はこの中から選んでダウンロードします。
 
 | モデル名 | 目安 |
 | ------- | ------- |
@@ -105,10 +111,10 @@ OSを選択するとダウンロード元リンクが表示されます。どれ
 
 :::message
 どれか1つあれば十分ですが、状況に合わせて切り替えたい場合は3つとも準備しておくと便利です。
-さらに余裕があれば`-q5_0`などの量子化モデルも用意しておくと、低スペック環境でも試しやすくなります🙆‍♀️
+さらに余裕があれば`-q5_0`などの量子化モデルも用意しておくと🙆‍♀️
 :::
 
-これらをダウンロードしたら、先ほど展開した`FFmpeg`ディレクトリ内に`models`📁ディレクトリを作成し、その中に配置します。
+これらをダウンロードしたら、先ほど展開した`FFmpeg`ディレクトリ内に📁`models`ディレクトリを作成し、その中に配置します。
 
 ![modelsディレクトリ](/images/articles/whisper/models-directory.png)
 *modelsディレクトリを作成*
@@ -117,10 +123,10 @@ OSを選択するとダウンロード元リンクが表示されます。どれ
 *モデルファイル*
 
 :::message
-例として3ファイルとも入れていますが、どれか1つ以上あれば大丈夫です。
+例として3ファイルとも入れていますが、どれか1つ以上あれば大丈夫です👍
 :::
 
-👇このような構成です
+👇このような構成です (Windowsの例です)
 
 ```text
 mug@mug-main:/mnt/c/Users/mug/OneDrive/Documents/ffmpeg$ tree --dirsfirst
@@ -151,7 +157,7 @@ mug@mug-main:/mnt/c/Users/mug/OneDrive/Documents/ffmpeg$ tree --dirsfirst
 
 ## 文字起こしの実行
 
-準備が整ったので、いよいよ文字起こしを実行してみます👏👏👏  
+準備が整ったので、いよいよ文字起こしを実行してみます🕺💃  
 まずは`FFmpeg`の公式ドキュメントを確認します。
 
 https://ffmpeg.org/ffmpeg-filters.html#whisper-1
@@ -176,10 +182,14 @@ https://ffmpeg.org/ffmpeg-filters.html#Examples-38
 
 変更するのは次の4点です。詳細は[公式ドキュメント](https://ffmpeg.org/ffmpeg-filters.html#whisper-1)も参照してください🙏
 
-1. `-i` 文字起こし対象のインプットファイルに変更する
-1. `whisper=model=` モデルのパスを実際に配置したモデルファイルへ変更する
-1. `:language=en` 言語設定は自動判別に任せるので削除する
-1. `:queue=3` リアルタイム処理ではないのでキューサイズを大きめにする
+1. `-i input.mp4`
+  文字起こし対象の動画ファイルに変更します。
+1. `model=../whisper.cpp/models/ggml-base.en.bin`
+  モデルのパスを実際に配置したモデルファイルへ変更します。
+1. `:language=en`
+  言語設定は自動判別に任せるので削除します。
+1. `:queue=3`
+  リアルタイム処理ではないのでキューサイズを大きめにします。
 
 調整後は以下のようになります。`video.mp4`は文字起こししたいファイル、`ggml-large-v3.bin`は使用したいモデルにそれぞれ置き換えてください。
 
@@ -196,14 +206,17 @@ ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
 ターミナルを起動して`FFmpeg`を展開したディレクトリ内の`bin`ディレクトリに移動し、前章で組み立てたコマンドを実行します  
 正常に完了すると、`output.srt`として文字起こし結果が出力されます。
 
+:::details コマンド
 ```bash
 ffmpeg -i video.mp4 -vn -af "whisper=model=../models/ggml-large-v3.bin\
 :queue=20\
 :destination=output.srt\
 :format=srt" -f null -
 ```
+:::
+
 :::message
-Macで実行するときは、初回に以下が必要になる場合があります。
+Macで実行するときは、初回に以下が必要になる場合があります🤔
 - Gatekeeperでブロックされたら`xattr -d com.apple.quarantine ./ffmpeg`で解除する
 - 実行権限が無いときは`chmod +x ./ffmpeg`を付与する
 - `ffmpeg`が見つからないと言われたら`./ffmpeg`のように前に`./`を付ける
@@ -245,13 +258,14 @@ batファイルを正しく配置できていればターミナルが起動し�
 *モデル選択*
 
 
-モデルを選択すると以下のように表示されるので、`Enter`を押すと文字起こしが開始されます🤩
+モデルを選択すると以下のように表示されるので、`Enter`キーを押すと文字起こしが開始されます🚀✨
 
 ![文字起こし開始](/images/articles/whisper/ready-to-exec.png)
 *文字起こし開始*
 
 
-しばらく待っていると文字起こしが完了します。以下のように表示されればOKです。
+しばらく待っていると文字起こしが完了します。
+以下のように表示されればOKです🙆‍♀️
 
 ![文字起こし完了](/images/articles/whisper/done-exec.png)
 *文字起こし完了*
@@ -283,7 +297,11 @@ batファイルを正しく配置できていればターミナルが起動し�
 
 文字起こし結果は完璧ではないので、多少の誤りは発生します🥺  
 気になる場合は✋手作業で修正するか、🤖AIに手伝ってもらいましょう。
-どちらの場合でも修正するのは __内容__ の部分だけにしてください。それ以外を変更すると、他のアプリで読み込めなくなる可能性があります。
+どちらの場合でも修正するのは __内容__ の部分だけにしてください。
+それ以外を変更すると、他のアプリで読み込めなくなる可能性があります😱
+
+また、変換精度や速度についてはモデルを変えてみたり、`queue`の値を変更してみたりすると
+変わってくるので、いろいろ試してみると良いです👍
 
 :::message
 テキストの区切り方が不自然に感じられる場合は、`queue=`の値を大きくすると自然な区切りに近づきます(多分🙈)。  
@@ -294,10 +312,9 @@ batファイルを正しく配置できていればターミナルが起動し�
 *batファイル*
 :::
 
-
 # DaVinci Resolveで読み込み
 
-文字起こし結果の`srt`ファイルはDaVinci Resolveに読み込んで字幕として設定できます👍
+文字起こし結果の`srt`ファイルは、DaVinci Resolveに読み込んで字幕として設定できます👍
 
 メディアプールに`srt`ファイルをドラッグ&ドロップします。
 
