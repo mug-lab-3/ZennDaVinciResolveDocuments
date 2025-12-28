@@ -237,13 +237,13 @@ Macの方はターミナルでコマンドを実行してください🙏🙏�
 
 ## Windows用バッチファイル
 
-[run-ffmpeg-wisper.bat](https://github.com/mug-lab-3/ZennDaVinciResolveDocuments/blob/main/images/articles/whisper/run-ffmpeg-wisper.bat)をダウンロードし、`FFmpeg`を展開したディレクトリに置きます。
+[run-ffmpeg-whisper.bat](https://github.com/mug-lab-3/ZennDaVinciResolveDocuments/blob/main/images/articles/whisper/run-ffmpeg-whisper.bat)をダウンロードし、`FFmpeg`を展開したディレクトリに置きます。
 
 ![batファイルのダウンロード](/images/articles/whisper/download-bat.png)
 *batファイルのダウンロード*
 
-![run-ffmpeg-wisper.bat](/images/articles/whisper/put-bat.png)
-*run-ffmpeg-wisper.bat*
+![run-ffmpeg-whisper.bat](/images/articles/whisper/put-bat.png)
+*run-ffmpeg-whisper.bat*
 
 
 batファイルの準備ができたら、このbatに文字起こししたい動画をドラッグ&ドロップします。
