@@ -93,7 +93,7 @@ echo 🏃 処理を実行中... しばらくお待ちください
 echo --------------------------------------------------
 
 pushd "%~dp0"
-"!ffmpegPath!" -i "!inputFile!" -vn -af "whisper=model=models/!modelName!:queue=20:destination=srt/!outputFile!:format=srt" -f null -
+"!ffmpegPath!" -itsoffset 01:00:00 -i "!inputFile!" -vn -af "whisper=model=models/!modelName!:queue=20:destination=srt/!outputFile!:format=srt" -f null -
 popd
 
 echo --------------------------------------------------
