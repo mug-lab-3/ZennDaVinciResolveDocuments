@@ -44,6 +44,12 @@ OpenAI[^1]が作った音声認識AIモデル🤖がWhisperです。このモデ
 
 FFmpeg公式サイト[^2]の[**ダウンロードページ**](https://www.ffmpeg.org/download.html)から、使用しているOSに合うものをダウンロードします。
 
+:::message alert
+2026/2/11 追記
+こちらで配布されているMac版のFFmpegに、whisperが含まれていないようです...
+Macではこの方法で文字起こしが出来ません😭
+:::
+
 [^2]: https://ffmpeg.org/
 
 ![OS選択](/images/articles/whisper/select-operating-system.png)
@@ -358,3 +364,4 @@ batファイルを正しく配置できていればターミナルが起動し�
 「これができるなら、文字起こしのためにDaVinci Resolve有料版(DaVinci Resolve Studio)は要らないのでは？」
 と思うかもしれませんが、有料版には文字起こし結果と連動したテキストベース編集など💪強力で🏪便利な機能が備わっています。
 今回の内容で完全に置き換えられるわけではないのです😤
+
