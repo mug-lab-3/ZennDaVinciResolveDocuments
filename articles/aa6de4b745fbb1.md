@@ -46,16 +46,17 @@ Reactorは、DaVinci Resolveの公式ツールではありません
 [WeSuckLess](https://www.steakunderwater.com/wesuckless/)にアクセスして、アカウントを作成します
 
 
-1-1 右上のチェックマークをクリックしてユーザー登録
+## 1-1 右上のチェックマークをクリックしてユーザー登録
+
 ![Register](/images/articles/reactor-submission/register-wsl.png)
 _Register_
 
-1-2 利用規約をよく読み同意する
+## 1-2 利用規約をよく読み同意する
 
 ![Agree terms](/images/articles/reactor-submission/agree-terms.png)
 _Agree terms_
 
-1-3 ユーザー情報を入力する
+## 1-3 ユーザー情報を入力する
 
 必要事項を記載し、最後のクイズを解いてsubmitします
 
@@ -66,7 +67,7 @@ _Registration_
 ![Registration complete](/images/articles/reactor-submission/registration-complete.png)
 _Registration complete_
 
-1-4 アクティベーション
+## 1-4 アクティベーション
 
 登録したメールアドレスにメールが届くので、メール内のリンクをクリックしてアクティベーションします
 
@@ -77,7 +78,7 @@ _Registration complete_
 ![Activation](/images/articles/reactor-submission/wsl-activation.png)
 _Activation_
 
-1-6 ログイン確認
+## 1-5 ログイン確認
 
 右上の電源ボタンをクリックして、登録したユーザー名、パスワードでログインできることを確認します
 右上のアイコンが変化して、色々出ていればログイン成功です🎉
@@ -92,8 +93,29 @@ _Logged in_
 本来は必須ではないですが、Reactorに含まれる`Atomizer`が、Atomファイルを作ったり
 登録申請をするうえでとても便利なのでインストールしておきます
 
+## 2-1 インストーラーのダウンロード
 
+[Reactor 3 Release Announcement](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=3067)のtopicページを開き、少し下にある
+`REACTOR-INSTALLER.LUA`のボタンをクリックしてインストーラーをダウンロードします
 
+:::message
+We Suck Lessにログインした状態でないとダウンロードできないので注意！
+:::
+
+![Reactor installer](/images/articles/reactor-submission/reactor-installer.png)
+_Reactor installer_
+
+## 2-2 Consoleを開く
+
+## 2-3 インストーラー起動
+
+## 2-4 インストール
+
+かなり時間がかかるのでのんびり待ちます
+Reactor windowが開いたら完了です🎉
+
+![Reactor](/images/articles/reactor-submission/reactor-window.png)
+_Reactor window_
 
 # 🛠️ 1. .atomファイルの準備
 
