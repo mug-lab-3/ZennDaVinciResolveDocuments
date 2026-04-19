@@ -41,52 +41,7 @@ Reactorは、DaVinci Resolveの公式ツールではありません
 5. 解説用素材
    - 掲示板に投稿するためのスクリーンショットやGIF、動画など
 
-# 1. WeSuckLessへのユーザー登録
 
-[WeSuckLess](https://www.steakunderwater.com/wesuckless/)にアクセスして、アカウントを作成します
-
-
-## 1-1 右上のチェックマークをクリックしてユーザー登録
-
-![Register](/images/articles/reactor-submission/register-wsl.png)
-_Register_
-
-## 1-2 利用規約をよく読み同意する
-
-![Agree terms](/images/articles/reactor-submission/agree-terms.png)
-_Agree terms_
-
-## 1-3 ユーザー情報を入力する
-
-必要事項を記載し、最後のクイズを解いてsubmitします
-
-![Registration 1](/images/articles/reactor-submission/registration1.png)
-![Registration 2](/images/articles/reactor-submission/registration2.png)
-_Registration_
-
-![Registration complete](/images/articles/reactor-submission/registration-complete.png)
-_Registration complete_
-
-## 1-4 アクティベーション
-
-登録したメールアドレスにメールが届くので、メール内のリンクをクリックしてアクティベーションします
-
-:::message
-メールが届かない場合は、迷惑メールフォルダを確認してください👀
-:::
-
-![Activation](/images/articles/reactor-submission/wsl-activation.png)
-_Activation_
-
-## 1-5 ログイン確認
-
-右上の電源ボタンをクリックして、登録したユーザー名、パスワードでログインできることを確認します
-右上のアイコンが変化して、色々出ていればログイン成功です🎉
-
-![Login 1](/images/articles/reactor-submission/login-wsl1.png)
-![Login 2](/images/articles/reactor-submission/login-wsl2.png)
-![Login 3](/images/articles/reactor-submission/logged-in-wsl.png)
-_Logged in_
 
 # 2. Reactor (Atomizer)のインストール
 
@@ -107,11 +62,25 @@ _Reactor installer_
 
 ## 2-2 Consoleを開く
 
+DaVinci Resolveを起動し、メニューバーの `Workspace > Console` を選択します
+
+![Console](/images/articles/reactor-submission/menu-console.png)
+
 ## 2-3 インストーラー起動
+
+Consoleウインドウに、先ほどダウンロードした`REACTOR-INSTALLER.LUA`をドラッグ＆ドロップします
+ドラッグ&ドロップするとReactorのインストーラーが起動します
+
+![Drag & Drop installer](/images/articles/reactor-submission/reactor-installer-dd.png)
+_Drag & Drop installer_
 
 ## 2-4 インストール
 
 かなり時間がかかるのでのんびり待ちます
+
+
+![Reactor installer](/images/articles/reactor-submission/reactor-installer-dd.png)
+
 Reactor windowが開いたら完了です🎉
 
 ![Reactor](/images/articles/reactor-submission/reactor-window.png)
