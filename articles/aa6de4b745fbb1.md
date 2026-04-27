@@ -8,85 +8,169 @@ published: false
 
 # 🐥 はじめに
 
-みなさん、こんにちは。[Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
+みなさん、こんにちは [Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
 
 DaVinci Resolveには`Reactor`という、ユーザーコミュニティによって作成されているパッケージマネージャーがあります
 Reactorではコミュニティによって作成されたエフェクトやツールが多数登録されていて、誰でも簡単にインストールして使用することができます
 そして、このReactorに登録されているツールは誰でも作成することができ、
-手順に従って申請することで、自作のエフェクトやツールをReactorに登録することができるんです！😮
+手順に従って申請することで、自作のエフェクトやツールをReactorに登録することができるんです！！
 
-今回はその手順を解説します👍
+今回はその、登録申請手順を紹介します👍
 
 :::message
-この記事では、2026/4/13現在の申請手順で解説しています
+この記事では、2026/4/27現在の申請手順で解説しています
 :::
 
-# 📦 Reactorとは
+# 🔗 参考情報
 
-Reactorは、[WeSuckLess](https://www.steakunderwater.com/wesuckless/)コミュニティによって運営されている、DaVinci Resolve / Fusion 向けの強力なパッケージマネージャーです。
-これを使うことで、ユーザーは複雑なインストール手順を意識することなく、ボタン一つでエフェクトやツールを導入・管理できるようになります✨
+この記事は下記の内容を日本語で分かりやすくまとめたものです 💦
+より詳細な情報は下記リンク先を参照ください 👀
+
+- [Submission Guidelines](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=1798/)
+- [Atom Packages Documentation](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=1799)
+- [Atomizer Documentation](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=1811)
+- [GitLab Reactor: Creating Atom Packages](https://gitlab.com/WeSuckLess/Reactor/-/blob/master/Docs/Creating-Atom-Packages.md#creating-atom-packages)
+
+# 📋 事前準備
+
+事前に下記を準備する必要があります
+特に1の登録したいエフェクトやツールは不備があると手戻りが発生したり
+Reactor運営に迷惑をかけてしまう可能性があるので
+しっかりと準備(確認)してから申請しましょう 👀
+
+1. 登録したいエフェクト/ツールの準備
+2. [WeSuckLessへの登録](https://zenn.dev/muglab3/articles/39490b884d0bec)
+3. [Reactorのインストール](https://zenn.dev/muglab3/articles/5cbf32f87031c4)
+4. 紹介用のスクリーンキャプチャや動画
+5. 紹介用の**英語**での説明文
+
+
+# 1. Atom Packageの作成
+
+申請するためにはエフェクトやツールのまとまりを`Atom Package`という形式で作成する必要があります
+これは、Reactorに含まれる`Atomizer`というツールを使うと簡単に作成できるので
+この記事では`Atomizer`を使って`Atom Package`を作成する手順を紹介します 👍
+
+
+
+## 1-1 Atomizerの起動
+
+DaVinci Resolveを起動し、メニューバーの 
+`Workspace > Scripts > Comp > Reactor > Tools > Atomizer` を選択して
+Atomizerを起動します
+起動したら`Crate New Atom Package`を選択します
+
+![Luanch Atomizer](/images/articles/reactor-submission/launch-atomaizer.png)
+_Luanch Atomizer_
+
+
+![Create New Atom Package](/images/articles/reactor-submission/crate-new-atom-package.png)
+_Create New Atom Package_
+
+
+## 1-2. Workspaceの準備
+
+まず初めに`Wroking Directory`と`Package Name`を設定します
+
+`Wroking Directory`は、作成するパッケージを保存する場所で、任意のフォルダでOKです
+その中にPackage用のフォルダが作られます
+
+`Package Name`は申請するパッケージのIDとなります
+`com`から初めて所属名,ツール/エフェクト名と`.`でつなぎます
+内容に制限はありませんが、英語です
+サブグループが必要ならばツール/エフェクト名の前に追加します
+よくわからなければ他のエフェクトを参考にしましょう ☝️
+
+入力が終わったら`Continue`をクリックします
 
 :::message alert
-Reactorは、DaVinci Resolveの公式ツールではありません
-:::
+Package Nameは一度申請したあとは変更できません
+:::  
 
-# 📝 申請に必要なもの
+`Package Name`は、作成するパッケージの名前です
+今回は`My Tool`というパッケージを作成するので、`Package Name`を`My Tool`に設定します
 
-登録にあたって、まずは以下の準備が必要です☝️
+![Set Workspace Directory & Package Name](/images/articles/reactor-submission/atom-input-work-dir.png)
+_Set Workspace Directory & Package Name_
 
-1. [WeSuckLess](https://www.steakunderwater.com/wesuckless/)コミュニティのアカウント
-2. Reactor (Atomizer)
-3. 登録したいエフェクト/ツール本体 (.fuse, .setting, .lua など)
-4. Atomパッケージファイル (.atom)
-5. 解説用素材
-   - 掲示板に投稿するためのスクリーンショットやGIF、動画など
+![Package ID](/images/articles/reactor-submission/atom-id.png)
+_Package ID_
 
 
+## 1-3. Package情報の作成
 
-# 2. Reactor (Atomizer)のインストール
+Packageに関する必要情報を入力していきます
 
-本来は必須ではないですが、Reactorに含まれる`Atomizer`が、Atomファイルを作ったり
-登録申請をするうえでとても便利なのでインストールしておきます
+![Package Information](/images/articles/reactor-submission/atom-input-pkg-info.png)
+_Package Information_
 
-## 2-1 インストーラーのダウンロード
 
-[Reactor 3 Release Announcement](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=3067)のtopicページを開き、少し下にある
-`REACTOR-INSTALLER.LUA`のボタンをクリックしてインストーラーをダウンロードします
+### **Author** 
+
+作者名を入力します、英語ならば何でも良いです
+
+### **PackageName** 
+
+ツール/エフェクト名を入力します
+(自動的に入力されているはず)
+
+### **Category** 
+
+カテゴリを設定します、任意のものを選択
+わからなければ`Reactor`を起動し、他のツールやエフェクトを見ながら
+それっぽいものを設定します 
+
+### **Version** 
+
+バージョンです
+`1.0`のような形式(浮動小数点数)で入力します
+
+### **Date** 
+
+**現在のバージョン**のリリース日を入力します
+いつでも良いです
+`Today`ボタンを押せば現在日時が入力されます
+
+
+### **Donation URL / Donation Amount** 
+
+寄付受付URLと寄付希望額を入力します
+ここは任意です、不要な場合は`空`に設定します
+この欄に`空`以外の設定を行うと、そのツール/エフェクトの
+インストールやアップデート時に、ユーザーへ寄付を募っている旨のダイアログが表示されるようになります
+
+寄付設定を行う場合は、PayPal等で別途送金用のURLを取得し、`Donation URL`に入力します
+`Donation Amount`には`$5.00 USD`のように寄付希望額と単位を入力します
+
+### Description
+
+ツール/エフェクトの説明文を入力します
+すべて英語でします
+htmlタグが使用できるので、読みやすいように整形します
+
+この内容がReactor各ツール/エフェクトのページに記載されます
 
 :::message
-We Suck Lessにログインした状態でないとダウンロードできないので注意！
+Reactorでの表示欄は狭いので超長文だと読みにくいです 😑
+適度な長さで記載しましょう
 :::
 
-![Reactor installer](/images/articles/reactor-submission/reactor-installer.png)
-_Reactor installer_
-
-## 2-2 Consoleを開く
-
-DaVinci Resolveを起動し、メニューバーの `Workspace > Console` を選択します
-
-![Console](/images/articles/reactor-submission/menu-console.png)
-
-## 2-3 インストーラー起動
-
-Consoleウインドウに、先ほどダウンロードした`REACTOR-INSTALLER.LUA`をドラッグ＆ドロップします
-ドラッグ&ドロップするとReactorのインストーラーが起動します
-
-![Drag & Drop installer](/images/articles/reactor-submission/reactor-installer-dd.png)
-_Drag & Drop installer_
-
-## 2-4 インストール
-
-かなり時間がかかるのでのんびり待ちます
+![Package Description](/images/articles/reactor-submission/reactor-description.png)
+_Package Description_
 
 
-![Reactor installer](/images/articles/reactor-submission/reactor-installer-dd.png)
 
-Reactor windowが開いたら完了です🎉
 
-![Reactor](/images/articles/reactor-submission/reactor-window.png)
-_Reactor window_
 
-# 🛠️ 1. .atomファイルの準備
+
+
+
+
+
+
+
+
+# 1. .atomファイルの準備
 
 Reactorでは `.atom` という形式のファイルでパッケージ情報を管理します。
 中身はLuaのテーブル形式のようなテキストファイルで、ツールの名前、バージョン、作者名、カテゴリなどを記述します。
