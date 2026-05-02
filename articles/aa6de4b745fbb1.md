@@ -44,14 +44,11 @@ Reactor運営に迷惑をかけてしまう可能性があるので
 4. 紹介用のスクリーンキャプチャや動画
 5. 紹介用の**英語**での説明文
 
-
 # 1. Atom Packageの作成
 
 申請するためにはエフェクトやツールのまとまりを`Atom Package`という形式で作成する必要があります
 これは、Reactorに含まれる`Atomizer`というツールを使うと簡単に作成できるので
 この記事では`Atomizer`を使って`Atom Package`を作成する手順を紹介します 👍
-
-
 
 ## 1-1 Atomizerの起動
 
@@ -96,14 +93,12 @@ _Set Workspace Directory & Package Name_
 ![Package ID](/images/articles/reactor-submission/atom-id.png)
 _Package ID_
 
-
 ## 1-3. Package情報の作成
 
 Packageに関する必要情報を入力していきます
 
 ![Package Information](/images/articles/reactor-submission/atom-input-pkg-info.png)
 _Package Information_
-
 
 ### **Author** 
 
@@ -151,21 +146,72 @@ htmlタグが使用できるので、読みやすいように整形します
 この内容がReactor各ツール/エフェクトのページに記載されます
 
 :::message
-Reactorでの表示欄は狭いので超長文だと読みにくいです 😑
-適度な長さで記載しましょう
+Reactorでの表示欄は狭いので、あまりに長文だと読みにくいです
+適度な長さで記載しましょう ✍️
 :::
 
 ![Package Description](/images/articles/reactor-submission/reactor-description.png)
 _Package Description_
 
 
+## 1-4. ツール/エフェクトの配置
+
+パッケージフォルダに実際のツールやエフェクトを配置します
+`Wroking Directory`の中に、`com`から始まるパッケージ名フォルダが作成されているので
+そのなかに、`Fusion`フォルダ内と**同じ構造になるように**ツールやエフェクトのファイルを配置します
+このときブランド名フォルダを作成し、その中に配置するようにすると
+他の人のエフェクトやツールと混ざらなくなるのでおすすめです 👍
+
+:::message
+`Atomizer`はまだ閉じないでください 🖐️
+:::
+
+![Tool/Effect files](/images/articles/reactor-submission/atom-resource-dirs.png)
+_Tool/Effect files_
+
+:::message
+`Fusion`フォルダとは下記のことです
+
+| OS | Path |
+| :--- | :--- |
+| Windows | C:\ProgramData\Blackmagic Design\DaVinci Resolve\Support\Fusion |
+| Mac | ~/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion |
+| Linux | ~/.local/share/DaVinciResolve/Fusion |
+:::
+
+## 1-5. Deploy欄への反映
+
+ツールやエフェクトファイルを配置したら`Atom`パッケージに反映させます
+右下にある🔄️シンクボタンを押します
+正しく配置できていれば`Deploy`の部分に反映されます
+`Deploy`に表示されたことを確認し、`Save Atom`を押して`.atom`ファイルに保存します
+
+![Add resources to deploy](/images/articles/reactor-submission/atom-sync-resources.png)
+_Add resources to deploy_
 
 
+![Save to Atom Package file](/images/articles/reactor-submission/atom-save-atom.png)
+_Save to Atom Package file_
 
+## 1-6. 内容の確認
 
+`View Raw Text`ボタンを押し、`.atom`ファイルの内容を確認します
+パッケージ情報として入力した内容が反映されていない場合は
+`Save Atom`を押してから再度確認します
 
+![View raw text](/images/articles/reactor-submission/atom-view-raw-text.png)
+_View raw text_ 
 
+![Raw text window](/images/articles/reactor-submission/atom-raw-text-window.png)
+_Raw text window_ 
 
+## 1-7. AtomパッケージのZip化
+
+申請用にパッケージフォルダをZip化します
+`com.xxxx.yyy`のフォルダごと`zip`として圧縮してください
+
+![Package folder](/images/articles/reactor-submission/atom-resource-dirs.png)
+_Package Folder_
 
 
 
