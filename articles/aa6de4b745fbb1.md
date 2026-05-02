@@ -199,6 +199,10 @@ _Save to Atom Package file_
 パッケージ情報として入力した内容が反映されていない場合は
 `Save Atom`を押してから再度確認します
 
+:::message
+`Atomizer`はまだ閉じないでください 🖐️
+:::
+
 ![View raw text](/images/articles/reactor-submission/atom-view-raw-text.png)
 _View raw text_ 
 
@@ -213,36 +217,134 @@ _Raw text window_
 ![Package folder](/images/articles/reactor-submission/atom-resource-dirs.png)
 _Package Folder_
 
+![Zipped Package](/images/articles/reactor-submission/atom-zipped.png)
+_Zipped Package_
 
 
-
-# 1. .atomファイルの準備
-
-Reactorでは `.atom` という形式のファイルでパッケージ情報を管理します。
-中身はLuaのテーブル形式のようなテキストファイルで、ツールの名前、バージョン、作者名、カテゴリなどを記述します。
-
-![Atom file sample placeholder](/images/articles/reactor-submission/atom-sample.png)
-_`.atom` ファイルの記述例_
-
-後ほど、具体的なテンプレートなどを追記する予定です💪
-
-# 📮 2. 申請の流れ
+# 📮 2. Reactor登録申請
 
 実際の申請は、WeSuckLessのフォーラムを通じて行います。
 
-## 2.1 WeSuckLessへの登録
+## 2.1 Topicの作成
 
-まだアカウントを持っていない場合は、[WeSuckLess Forums](https://www.steakunderwater.com/wesuckless/) でアカウントを作成しましょう。
+[Reactor Submissions](https://www.steakunderwater.com/wesuckless/viewforum.php?f=33)のページにアクセスして
+新しいTopicを作成します
 
-## 2.2 申請トピックの作成
+![New Topic Button](/images/articles/reactor-submission/wsl-new-topic.png)
+_New Topic Button_ 
 
-1. フォーラム内の **"Reactor Submissions"** セクションへ行きます。
-2. 新しくトピックを作成します。
-3. トピックの内容には、ツールの機能説明、スクリーンショット等を記載します。
-4. **重要：** 作成した `.atom` ファイルと、ツールを同梱した `.zip` ファイルをトピックに添付します。
+## 2.2 Templateの挿入
 
-![Reactor Submission Form Placeholder](/images/articles/reactor-submission/forum-sample.png)
-_掲示板での投稿イメージ_
+`Atomizer`の`Copy BB Code`ボタンをクリックし、topicに記載するテンプレートをコピーします
+コピーしたら、一旦そのままtopicのdescriptionに貼り付けます
+
+![Copy BB Code](/images/articles/reactor-submission/atom-copy-bbcode.png)
+_Copy BB Code_ 
+
+![Insert Template](/images/articles/reactor-submission/wsl-insert-template.png)
+_Insert Template_ 
+
+## 2.3 必要事項の入力
+
+Topicタイトル、本文を入力していきます
+よくわからなかったら[私が申請した内容](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=8618)を参考にしてください
+
+### 2.3.1 Topic prefix
+
+新規申請を意味するタグ、`[SUBMITTION]`を選択します
+
+### 2.3.2 Subject
+
+`Topic prefix`で選択したタグが自動的に入力されるので
+その後にツール/エフェクト名や、内容を表す件名を入力します
+
+### 2.3.3 Description
+
+先ほど貼り付けた`BBCode`を整形していきます
+`<XXXX here>`と書かれているところはプレースホルダーなので
+実際の内容に置き換えていきます
+
+#### 2.3.3.1 `<Write a Description Here>`
+
+ツール/エフェクトの概要やアピールポイント、使い方などを記載します
+
+![Write description](/images/articles/reactor-submission/wsl-description.png)
+_Write description_ 
+
+#### 2.3.3.2 `<Attach Your Screenshot Image Here Here>`
+
+ツール/エフェクトのスクリーンショット（または動画リンク）を添付します
+下部にある`attachments`ボタンから添付ファイルをアップロードすることができます
+アップロードすると`description`欄の**カーソル位置**に画像タグが挿入されるので、画像を挿入したい位置にカーソルを合わせてから`addfiles`ボタンをクリックしましょう
+
+:::message
+自動挿入されるAltテキストはファイル名になります
+わかり易い内容に変更しましょう
+特に日本語ファイル名の場合、Altテキストは必ず変更しましょう
+:::
+
+![Attachment button](/images/articles/reactor-submission/wsl-upload-attachments.png)
+_Attachment button_ 
+
+![Insert attachment](/images/articles/reactor-submission/wsl-insert-attachments.png)
+_Insert attachment_ 
+
+#### 2.3.3.3 `Changelog`
+
+更新履歴を記載しますが
+通常は最初のリリースでは記載不要です、この部分は削除しましょう
+
+![Remove changelog](/images/articles/reactor-submission/wsl-remove-changelog.png)
+_Remove changelog_ 
+
+#### 2.3.3.4 `<Attach Your Package Archive Here>`
+
+作成したパッケージの`zip`ファイルを添付します
+`attachments`ボタンから添付ファイルをアップロードすることができます
+
+![upload zip](/images/articles/reactor-submission/wsl-upload-package.png)
+_upload zip_ 
+
+![insert zip](/images/articles/reactor-submission/wsl-insert-package.png)
+_insert zip_ 
+
+#### 2.3.3.5 `Atom File Contents`
+
+この部分は、`Atomizer`で作成した内容が記載されています
+🙅‍♀️**変更しないようにしましょう**
+
+![Atom File Contents](/images/articles/reactor-submission/wsl-atom-file-contents.png)
+_Atom File Contents_ 
+
+#### 2.3.3.6 `<Attach Your Zipped Atom Package Here>`
+
+zip可したAtomパッケージファイルを添付します
+スクリーショットと同様に、カーソルを合わせた状態で`addfiles`ボタンをクリックし
+zipファイルをアップロードします
+
+![Attach atom pkg](/images/articles/reactor-submission/wsl-attach-atom-pkg.png)
+_Attach atom pkg_ 
+
+![Insert zipped atom package](/images/articles/reactor-submission/wsl-upload-zipped-atom-pkg.png)
+_Insert zipped atom package_ 
+
+### 2.3.3.7 Preview
+
+すべての入力が終わったら`Preview`ボタンをクリックして表示を確認します
+問題があれば入力し直してpreviewを繰り返します
+
+
+![Topic Preview](/images/articles/reactor-submission/wsl-topic-preview.png)
+_Topic Preview_
+
+### 2.3.3.8 Submit
+
+問題がなければ`Submit`ボタンをクリックしてトピックを投稿します
+これで申請は完了です！
+
+![Submit Topic](/images/articles/reactor-submission/wsl-submit-topic.png)
+_Submit Topic_
+
 
 # ⏳ 審査と公開
 
