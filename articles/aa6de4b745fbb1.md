@@ -54,7 +54,7 @@ Reactor運営の方々に迷惑をかけてしまう可能性があるので🥺
 これは、Reactorに含まれる`Atomizer`というツールを使うと簡単に作成できるので
 この記事では`Atomizer`を使って`Atom Package`を作成する手順を紹介します 👍
 
-## 1-1 Atomizerの起動
+## Atomizerの起動
 
 DaVinci Resolveを起動し、メニューバーの 
 `Workspace > Scripts > Comp > Reactor > Tools > Atomizer` を選択して
@@ -69,7 +69,7 @@ _Launch Atomizer_
 _Create New Atom Package_
 
 
-## 1-2. Workspaceの準備
+## Workspaceの準備
 
 まず初めに`Working Directory`と`Package Name`を設定します
 
@@ -89,53 +89,49 @@ _Create New Atom Package_
 Package Nameは一度申請したあとは変更できません
 :::  
 
-`Package Name`は、作成するパッケージの名前です
-今回は`My Tool`というパッケージを作成するので
-`Package Name`を`My Tool`に設定します
-
 ![Set Workspace Directory & Package Name](/images/articles/reactor-submission/atom-input-work-dir.png)
 _Set Workspace Directory & Package Name_
 
 ![Package ID](/images/articles/reactor-submission/atom-id.png)
 _Package ID_
 
-## 1-3. Package情報の作成
+## Package情報の作成
 
 Packageに関する必要情報を入力していきます
 
 ![Package Information](/images/articles/reactor-submission/atom-input-pkg-info.png)
 _Package Information_
 
-### **Author** 
+**【 Author 】**
 
 作者名を入力します
 英語ならば何でも良いです
 
-### **PackageName** 
+**【 PackageName 】**
 
 ツール/エフェクト名を入力します
 (自動的に入力されているはず)
 
-### **Category** 
+**【 Category 】**
 
 カテゴリを設定します
 任意のものを選択
 わからなければ`Reactor`を起動して
 他のツールやエフェクトを参考にしながら、それっぽいものを設定しましょう🧐
 
-### **Version** 
+**【 Version 】**
 
 バージョンです
 `1.0`のような形式(浮動小数点数)で入力します
 
-### **Date** 
+**【 Date 】**
 
 **現在のバージョン**のリリース日を入力します
 いつでも良いです
 `Today`ボタンを押せば現在日時が入力されます
 
 
-### **Donation URL / Donation Amount** 
+**【 Donation URL / Donation Amount 】**
 
 寄付受付URLと寄付希望額を入力します
 ここは任意です
@@ -148,7 +144,7 @@ _Package Information_
 `Donation URL`に入力します
 `Donation Amount`には`$5.00 USD`のように寄付希望額と単位を入力します
 
-### Description
+**【 Description 】**
 
 ツール/エフェクトの説明文を入力します
 すべて**英語**で記述してください
@@ -167,7 +163,7 @@ Reactorでの表示欄は狭いので
 _Package Description_
 
 
-## 1-4. ツール/エフェクトの配置
+## ツール/エフェクトの配置
 
 パッケージフォルダに実際のツールやエフェクトを配置します
 `Working Directory`の中に、`com`から始まるパッケージ名フォルダが作成されているので
@@ -194,7 +190,7 @@ _Tool/Effect files_
 | Linux | ~/.local/share/DaVinciResolve/Fusion |
 :::
 
-## 1-5. Deploy欄への反映
+## Deploy欄への反映
 
 ツールやエフェクトファイルを配置したら`Atom`パッケージに反映させます
 右下にある🔄️シンクボタンを押します
@@ -209,7 +205,7 @@ _Add resources to deploy_
 ![Save to Atom Package file](/images/articles/reactor-submission/atom-save-atom.png)
 _Save to Atom Package file_
 
-## 1-6. 内容の確認
+## 内容の確認
 
 `View Raw Text`ボタンを押し、`.atom`ファイルの内容を確認します
 パッケージ情報として入力した内容が反映されていない場合は
@@ -225,7 +221,7 @@ _View raw text_
 ![Raw text window](/images/articles/reactor-submission/atom-raw-text-window.png)
 _Raw text window_ 
 
-## 1-7. AtomパッケージのZip化
+## AtomパッケージのZip化
 
 申請用にパッケージフォルダをZip化します
 `com.xxxx.yyy`のフォルダごと`zip`として圧縮してください
@@ -241,7 +237,7 @@ _Zipped Package_
 
 実際の申請は、WeSuckLessのフォーラムを通じて行います
 
-## 2.1 Topicの作成
+## Topicの作成
 
 [Reactor Submissions](https://www.steakunderwater.com/wesuckless/viewforum.php?f=33)のページにアクセスして
 新しいTopicを作成しましょう
@@ -249,7 +245,7 @@ _Zipped Package_
 ![New Topic Button](/images/articles/reactor-submission/wsl-new-topic.png)
 _New Topic Button_ 
 
-## 2.2 Templateの挿入
+## Templateの挿入
 
 `Atomizer`の`Copy BB Code`ボタンをクリックし
 topicに記載するテンプレートをコピーします
@@ -262,36 +258,36 @@ _Copy BB Code_
 ![Insert Template](/images/articles/reactor-submission/wsl-insert-template.png)
 _Insert Template_ 
 
-## 2.3 必要事項の入力
+## 必要事項の入力
 
 Topicタイトル、本文を入力していきます
 よくわからなかったら[私が申請した内容](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=8618)を参考にしてください
 
-### 2.3.1 Topic prefix
+**【 Topic prefix 】**
 
 新規申請を意味するタグ、`[SUBMISSION]`を選択します
 
-### 2.3.2 Subject
+**【 Subject 】**
 
 `Topic prefix`で選択したタグが自動的に入力されるので
 その後にツール/エフェクト名や、内容を表す件名を入力します
 
-### 2.3.3 Description
+**【 Description 】**
 
 先ほど貼り付けた`BBCode`を整形していきます
 `<XXXX here>`と書かれているところはプレースホルダーなので
 実際の内容に置き換えていきます
 
-#### 2.3.3.1 `<Write a Description Here>`
+**【 📝 説明文（Description）の入力 】**
 
-ツール/エフェクトの概要やアピールポイント、使い方などを記載します
+`<Write a Description Here>` の部分を消して、ツール/エフェクトの概要やアピールポイント、使い方などを記載します
 
 ![Write description](/images/articles/reactor-submission/wsl-description.png)
 _Write description_ 
 
-#### 2.3.3.2 `<Attach Your Screenshot Image Here>`
+**【 🖼️ スクリーンショットの添付 】**
 
-ツール/エフェクトのスクリーンショット（または動画リンク）を添付します
+`<Attach Your Screenshot Image Here>` の部分を消して、ツール/エフェクトのスクリーンショット（または動画リンク）を添付します
 下部にある`attachments`ボタンから添付ファイルをアップロードすることができます
 アップロードすると`description`欄の**カーソル位置**に画像タグが挿入されるので
 画像を挿入したい位置にカーソルを合わせてから`addfiles`ボタンをクリックしましょう
@@ -308,37 +304,26 @@ _Attachment button_
 ![Insert attachment](/images/articles/reactor-submission/wsl-insert-attachments.png)
 _Insert attachment_ 
 
-#### 2.3.3.3 `Changelog`
+**【 🗑️ 変更履歴（Changelog）の削除 】**
 
-更新履歴を記載しますが
+`Changelog` （更新履歴）を記載する部分ですが
 通常、最初のリリースでは記載が不要なので
-この部分は丸ごと削除してしまいましょう🗑️
+この部分はプレースホルダーごと丸ごと削除してしまいましょう🗑️
 
 ![Remove changelog](/images/articles/reactor-submission/wsl-remove-changelog.png)
 _Remove changelog_ 
 
-#### 2.3.3.4 `<Attach Your Package Archive Here>`
+**【 ⚠️ Atom File Contentsの確認 】**
 
-作成したパッケージの`zip`ファイルを添付します
-`attachments`ボタンから添付ファイルをアップロードすることができます
-
-![upload zip](/images/articles/reactor-submission/wsl-upload-zipped-atom-pkg.png)
-_upload zip_ 
-
-![insert zip](/images/articles/reactor-submission/wsl-attach-atom-pkg.png)
-_insert zip_ 
-
-#### 2.3.3.5 `Atom File Contents`
-
-この部分は、`Atomizer`で作成した内容が記載されています
-🙅‍♀️**変更しないようにしましょう**
+`Atom File Contents` の部分には、`Atomizer`で作成した内容が記載されています
+ここはフォーマットの一部なので、🙅‍♀️**変更しないようにしましょう**
 
 ![Atom File Contents](/images/articles/reactor-submission/wsl-atom-file-contents.png)
 _Atom File Contents_ 
 
-#### 2.3.3.6 `<Attach Your Zipped Atom Package Here>`
+**【 📦 Zipファイルの添付 】**
 
-zip化したAtomパッケージファイルを添付します
+`<Attach Your Zipped Atom Package Here>` の部分を消して、zip化したAtomパッケージファイルを添付します
 スクリーンショットと同様に
 カーソルを合わせた状態で`addfiles`ボタンをクリックし
 zipファイルをアップロードします
@@ -349,7 +334,7 @@ _Attach atom pkg_
 ![Insert zipped atom package](/images/articles/reactor-submission/wsl-upload-zipped-atom-pkg.png)
 _Insert zipped atom package_ 
 
-### 2.3.3.7 Preview
+## Preview
 
 すべての入力が終わったら`Preview`ボタンをクリックして表示を確認します
 問題があれば入力し直してpreviewを繰り返します
@@ -358,7 +343,7 @@ _Insert zipped atom package_
 ![Topic Preview](/images/articles/reactor-submission/wsl-topic-preview.png)
 _Topic Preview_
 
-### 2.3.3.8 Submit
+## Submit
 
 表示に問題がなければ、いよいよ`Submit`ボタンをクリックしてトピックを投稿します
 これでReactorへの登録申請は完了です！お疲れ様でした🎉
