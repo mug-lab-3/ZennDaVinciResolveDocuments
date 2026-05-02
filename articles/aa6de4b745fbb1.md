@@ -228,7 +228,7 @@ _Raw text window_
 ## AtomパッケージのZip化
 
 申請用にパッケージフォルダをZip化します
-`com.xxxx.yyy`のフォルダごと`zip`として圧縮してください
+`com.xxxx.yyy`のフォルダごと`zip`として圧縮してください🤐
 
 ![Package folder](/images/articles/reactor-submission/atom-resource-dirs.png)
 _Package Folder_
