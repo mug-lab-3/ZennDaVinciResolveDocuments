@@ -18,7 +18,7 @@ DaVinci Resolveには`Reactor`という
 手順に従って申請すれば
 自作のツール/エフェクトを`Reactor`に登録できちゃうんです！！😆👍
 
-今回はその、登録申請手順を紹介します 😤
+今回はその、登録申請手順を紹介します😤
 
 :::message
 この記事では、2026/4/27現在の申請手順で解説しています
@@ -27,7 +27,7 @@ DaVinci Resolveには`Reactor`という
 # 🔗 参考情報
 
 この記事は下記の内容を日本語で分かりやすくまとめたものです
-より詳細な情報は下記リンク先を参照ください 👀
+より詳細な情報は下記リンク先を参照ください👀
 
 - [Submission Guidelines](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=1798/)
 - [Atom Packages Documentation](https://www.steakunderwater.com/wesuckless/viewtopic.php?t=1799)
@@ -60,7 +60,7 @@ Reactor運営の方々に迷惑をかけてしまう可能性があるので🥺
 申請するためには
 ツール/エフェクトのまとまりを`Atom Package`という形式で作成する必要があります
 これは、Reactorに含まれる`Atomizer`というツールを使うと簡単に作成できるので
-この記事では`Atomizer`を使って`Atom Package`を作成する手順を紹介します 👍
+この記事では`Atomizer`を使って`Atom Package`を作成する手順を紹介します👍
 
 ## Atomizerの起動
 
@@ -89,7 +89,7 @@ _Create New Atom Package_
 `com`から始めて、所属名やツール/エフェクト名などを`.`でつなぎます
 内容に制限はありません
 サブグループが必要ならばツール/エフェクト名の前に追加します
-よくわからなければ他のエフェクトを参考にしましょう ☝️
+よくわからなければ他のエフェクトを参考にしましょう☝️
 
 入力が終わったら`Continue`をクリックします
 
@@ -163,7 +163,7 @@ htmlタグが使用できるので
 :::message
 Reactorでの表示欄は狭いので
 あまりに長文だと読みにくいです
-適度な長さで記載しましょう ✍️
+適度な長さで記載しましょう✍️
 :::
 
 ![Package Description](/images/articles/reactor-submission/reactor-description.png)
@@ -178,10 +178,10 @@ _Package Description_
 ツール/エフェクトのファイルを配置します
 このときブランド名フォルダを作成し
 その中に配置するようにすると
-他の人のツール/エフェクトと混ざらなくなるのでおすすめです 👍
+他の人のツール/エフェクトと混ざらなくなるのでおすすめです👍
 
 :::message
-`Atomizer`はまだ閉じないでください 🖐️
+`Atomizer`はまだ閉じないでください🖐️
 :::
 
 ![Tool/Effect files](/images/articles/reactor-submission/atom-resource-dirs.png)
@@ -219,7 +219,7 @@ _Save to Atom Package file_
 `Save Atom`を押してから再度確認します
 
 :::message
-`Atomizer`はまだ閉じないでください 🖐️
+`Atomizer`はまだ閉じないでください🖐️
 :::
 
 ![View raw text](/images/articles/reactor-submission/atom-view-raw-text.png)
@@ -375,7 +375,7 @@ _Submit Topic_
 Topicを`SUBMISSION`で投稿すると
 Reactorの管理者の方々が内容をチェックしてくれます
 通常は数日ほどで見てもらえますが
-専業ではないので気長に待ちましょう 🙂‍↕️
+専業ではないので気長に待ちましょう🙂‍↕️
 問題がなければReactorのリポジトリに取り込まれ
 世界中のユーザーがインストールできるようになります🎉🎉🎉
 
