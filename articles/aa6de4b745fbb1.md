@@ -302,10 +302,10 @@ _Remove changelog_
 作成したパッケージの`zip`ファイルを添付します
 `attachments`ボタンから添付ファイルをアップロードすることができます
 
-![upload zip](/images/articles/reactor-submission/wsl-upload-package.png)
+![upload zip](/images/articles/reactor-submission/wsl-upload-zipped-atom-pkg.png)
 _upload zip_ 
 
-![insert zip](/images/articles/reactor-submission/wsl-insert-package.png)
+![insert zip](/images/articles/reactor-submission/wsl-attach-atom-pkg.png)
 _insert zip_ 
 
 #### 2.3.3.5 `Atom File Contents`
@@ -346,18 +346,14 @@ _Topic Preview_
 _Submit Topic_
 
 
-# ⏳ 審査と公開
+# 3. ⏳ 審査と公開
 
-投稿すると、Reactorの管理者の方々が内容をチェックしてくれます。
-修正が必要な場合はリプライでアドバイスがもらえます。
-問題がなければ、数日〜数週間でReactorのメインリポジトリに取り込まれ、世界中のユーザーがインストールできるようになります🎉🎉🎉
+Topicを`SUBMISSION`で投稿すると、Reactorの管理者の方々が内容をチェックしてくれます
+通常は数日ほどで見てもらえますが、専業ではないので気長に待ちましょう 🙂‍↕️
+問題がなければReactorのリポジトリに取り込まれ
+世界中のユーザーがインストールできるようになります🎉🎉🎉
 
 # 🐔 おわりに
 
 Reactorに自分のツールが掲載されるのは、開発者としてとても嬉しい瞬間です😊
 コミュニティへの貢献にもなりますし、フィードバックをもらうことでツールの改善にも繋がります。
-
-この記事はまだ下書き段階ですが、後ほど各ステップのより詳細なテクニックなどを追記して仕上げていく予定です！
-
-この記事が参考になった場合は、ぜひコメントやSNSでシェアしていただけると励みになります。
-ではまた！🐼
