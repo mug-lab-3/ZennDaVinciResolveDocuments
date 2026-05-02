@@ -10,10 +10,13 @@ published: false
 
 みなさん、こんにちは [Mug](https://www.youtube.com/channel/UCuhx0M-PBn4qJ-SUKQ6gVaA)です🐼
 
-DaVinci Resolveには`Reactor`という、ユーザーコミュニティによって作成されているパッケージマネージャーがあります
-Reactorではコミュニティによって作成されたエフェクトやツールが多数登録されていて、誰でも簡単にインストールして使用することができます
-そして、このReactorに登録されているツールは誰でも作成することができ、
-手順に従って申請することで、自作のエフェクトやツールをReactorに登録することができるんです！！
+DaVinci Resolveには`Reactor`という
+ユーザーコミュニティによって作成されているパッケージマネージャーがあります
+Reactorではコミュニティによって作成されたエフェクトやツールが多数登録されていて
+誰でも簡単にインストールして使用することができます
+そして、このReactorに登録されているツールは誰でも作成することができ
+手順に従って申請することで
+自作のエフェクトやツールをReactorに登録することができるんです！！
 
 今回はその、登録申請手順を紹介します👍
 
@@ -46,7 +49,8 @@ Reactor運営に迷惑をかけてしまう可能性があるので
 
 # 1. Atom Packageの作成
 
-申請するためにはエフェクトやツールのまとまりを`Atom Package`という形式で作成する必要があります
+申請するためには
+エフェクトやツールのまとまりを`Atom Package`という形式で作成する必要があります
 これは、Reactorに含まれる`Atomizer`というツールを使うと簡単に作成できるので
 この記事では`Atomizer`を使って`Atom Package`を作成する手順を紹介します 👍
 
@@ -55,10 +59,10 @@ Reactor運営に迷惑をかけてしまう可能性があるので
 DaVinci Resolveを起動し、メニューバーの 
 `Workspace > Scripts > Comp > Reactor > Tools > Atomizer` を選択して
 Atomizerを起動します
-起動したら`Crate New Atom Package`を選択します
+起動したら`Create New Atom Package`を選択します
 
-![Luanch Atomizer](/images/articles/reactor-submission/launch-atomaizer.png)
-_Luanch Atomizer_
+![Launch Atomizer](/images/articles/reactor-submission/launch-atomaizer.png)
+_Launch Atomizer_
 
 
 ![Create New Atom Package](/images/articles/reactor-submission/crate-new-atom-package.png)
@@ -67,9 +71,10 @@ _Create New Atom Package_
 
 ## 1-2. Workspaceの準備
 
-まず初めに`Wroking Directory`と`Package Name`を設定します
+まず初めに`Working Directory`と`Package Name`を設定します
 
-`Wroking Directory`は、作成するパッケージを保存する場所で、任意のフォルダでOKです
+`Working Directory`は、作成するパッケージを保存する場所で
+任意のフォルダでOKです
 その中にPackage用のフォルダが作られます
 
 `Package Name`は申請するパッケージのIDとなります
@@ -85,7 +90,8 @@ Package Nameは一度申請したあとは変更できません
 :::  
 
 `Package Name`は、作成するパッケージの名前です
-今回は`My Tool`というパッケージを作成するので、`Package Name`を`My Tool`に設定します
+今回は`My Tool`というパッケージを作成するので
+`Package Name`を`My Tool`に設定します
 
 ![Set Workspace Directory & Package Name](/images/articles/reactor-submission/atom-input-work-dir.png)
 _Set Workspace Directory & Package Name_
@@ -102,7 +108,8 @@ _Package Information_
 
 ### **Author** 
 
-作者名を入力します、英語ならば何でも良いです
+作者名を入力します
+英語ならば何でも良いです
 
 ### **PackageName** 
 
@@ -111,9 +118,10 @@ _Package Information_
 
 ### **Category** 
 
-カテゴリを設定します、任意のものを選択
-わからなければ`Reactor`を起動し、他のツールやエフェクトを見ながら
-それっぽいものを設定します 
+カテゴリを設定します
+任意のものを選択
+わからなければ`Reactor`を起動し
+他のツールやエフェクトを見ながらそれっぽいものを設定します 
 
 ### **Version** 
 
@@ -130,23 +138,28 @@ _Package Information_
 ### **Donation URL / Donation Amount** 
 
 寄付受付URLと寄付希望額を入力します
-ここは任意です、不要な場合は`空`に設定します
+ここは任意です
+不要な場合は`空`に設定します
 この欄に`空`以外の設定を行うと、そのツール/エフェクトの
-インストールやアップデート時に、ユーザーへ寄付を募っている旨のダイアログが表示されるようになります
+インストールやアップデート時に
+ユーザーへ寄付を募っている旨のダイアログが表示されるようになります
 
-寄付設定を行う場合は、PayPal等で別途送金用のURLを取得し、`Donation URL`に入力します
+寄付設定を行う場合は、PayPal等で別途送金用のURLを取得し
+`Donation URL`に入力します
 `Donation Amount`には`$5.00 USD`のように寄付希望額と単位を入力します
 
 ### Description
 
 ツール/エフェクトの説明文を入力します
-すべて英語でします
-htmlタグが使用できるので、読みやすいように整形します
+すべて英語で記述します
+htmlタグが使用できるので
+読みやすいように整形します
 
 この内容がReactor各ツール/エフェクトのページに記載されます
 
 :::message
-Reactorでの表示欄は狭いので、あまりに長文だと読みにくいです
+Reactorでの表示欄は狭いので
+あまりに長文だと読みにくいです
 適度な長さで記載しましょう ✍️
 :::
 
@@ -157,9 +170,11 @@ _Package Description_
 ## 1-4. ツール/エフェクトの配置
 
 パッケージフォルダに実際のツールやエフェクトを配置します
-`Wroking Directory`の中に、`com`から始まるパッケージ名フォルダが作成されているので
-そのなかに、`Fusion`フォルダ内と**同じ構造になるように**ツールやエフェクトのファイルを配置します
-このときブランド名フォルダを作成し、その中に配置するようにすると
+`Working Directory`の中に、`com`から始まるパッケージ名フォルダが作成されているので
+そのなかに、`Fusion`フォルダ内と**同じ構造になるように**
+ツールやエフェクトのファイルを配置します
+このときブランド名フォルダを作成し
+その中に配置するようにすると
 他の人のエフェクトやツールと混ざらなくなるのでおすすめです 👍
 
 :::message
@@ -184,7 +199,8 @@ _Tool/Effect files_
 ツールやエフェクトファイルを配置したら`Atom`パッケージに反映させます
 右下にある🔄️シンクボタンを押します
 正しく配置できていれば`Deploy`の部分に反映されます
-`Deploy`に表示されたことを確認し、`Save Atom`を押して`.atom`ファイルに保存します
+`Deploy`に表示されたことを確認し
+`Save Atom`を押して`.atom`ファイルに保存します
 
 ![Add resources to deploy](/images/articles/reactor-submission/atom-sync-resources.png)
 _Add resources to deploy_
@@ -223,7 +239,7 @@ _Zipped Package_
 
 # 📮 2. Reactor登録申請
 
-実際の申請は、WeSuckLessのフォーラムを通じて行います。
+実際の申請は、WeSuckLessのフォーラムを通じて行います
 
 ## 2.1 Topicの作成
 
@@ -235,8 +251,10 @@ _New Topic Button_
 
 ## 2.2 Templateの挿入
 
-`Atomizer`の`Copy BB Code`ボタンをクリックし、topicに記載するテンプレートをコピーします
-コピーしたら、一旦そのままtopicのdescriptionに貼り付けます
+`Atomizer`の`Copy BB Code`ボタンをクリックし
+topicに記載するテンプレートをコピーします
+コピーしたら
+一旦そのままtopicのdescriptionに貼り付けます
 
 ![Copy BB Code](/images/articles/reactor-submission/atom-copy-bbcode.png)
 _Copy BB Code_ 
@@ -251,7 +269,7 @@ Topicタイトル、本文を入力していきます
 
 ### 2.3.1 Topic prefix
 
-新規申請を意味するタグ、`[SUBMITTION]`を選択します
+新規申請を意味するタグ、`[SUBMISSION]`を選択します
 
 ### 2.3.2 Subject
 
@@ -271,11 +289,12 @@ Topicタイトル、本文を入力していきます
 ![Write description](/images/articles/reactor-submission/wsl-description.png)
 _Write description_ 
 
-#### 2.3.3.2 `<Attach Your Screenshot Image Here Here>`
+#### 2.3.3.2 `<Attach Your Screenshot Image Here>`
 
 ツール/エフェクトのスクリーンショット（または動画リンク）を添付します
 下部にある`attachments`ボタンから添付ファイルをアップロードすることができます
-アップロードすると`description`欄の**カーソル位置**に画像タグが挿入されるので、画像を挿入したい位置にカーソルを合わせてから`addfiles`ボタンをクリックしましょう
+アップロードすると`description`欄の**カーソル位置**に画像タグが挿入されるので
+画像を挿入したい位置にカーソルを合わせてから`addfiles`ボタンをクリックしましょう
 
 :::message
 自動挿入されるAltテキストはファイル名になります
@@ -292,7 +311,8 @@ _Insert attachment_
 #### 2.3.3.3 `Changelog`
 
 更新履歴を記載しますが
-通常は最初のリリースでは記載不要です、この部分は削除しましょう
+通常は最初のリリースでは記載不要です
+この部分は削除しましょう
 
 ![Remove changelog](/images/articles/reactor-submission/wsl-remove-changelog.png)
 _Remove changelog_ 
@@ -318,8 +338,9 @@ _Atom File Contents_
 
 #### 2.3.3.6 `<Attach Your Zipped Atom Package Here>`
 
-zip可したAtomパッケージファイルを添付します
-スクリーショットと同様に、カーソルを合わせた状態で`addfiles`ボタンをクリックし
+zip化したAtomパッケージファイルを添付します
+スクリーンショットと同様に
+カーソルを合わせた状態で`addfiles`ボタンをクリックし
 zipファイルをアップロードします
 
 ![Attach atom pkg](/images/articles/reactor-submission/wsl-attach-atom-pkg.png)
@@ -348,12 +369,16 @@ _Submit Topic_
 
 # 3. ⏳ 審査と公開
 
-Topicを`SUBMISSION`で投稿すると、Reactorの管理者の方々が内容をチェックしてくれます
-通常は数日ほどで見てもらえますが、専業ではないので気長に待ちましょう 🙂‍↕️
+Topicを`SUBMISSION`で投稿すると
+Reactorの管理者の方々が内容をチェックしてくれます
+通常は数日ほどで見てもらえますが
+専業ではないので気長に待ちましょう 🙂‍↕️
 問題がなければReactorのリポジトリに取り込まれ
 世界中のユーザーがインストールできるようになります🎉🎉🎉
 
 # 🐔 おわりに
 
-Reactorに自分のツールが掲載されるのは、開発者としてとても嬉しい瞬間です😊
-コミュニティへの貢献にもなりますし、フィードバックをもらうことでツールの改善にも繋がります。
+Reactorに自分のツールが掲載されるのは
+開発者としてとても嬉しい瞬間です😊
+コミュニティへの貢献にもなりますし
+フィードバックをもらうことでツールの改善にも繋がります
