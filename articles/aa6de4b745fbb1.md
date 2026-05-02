@@ -83,19 +83,19 @@ _Create New Atom Package_
 まず初めに`Working Directory`と`Package Name`を設定します
 
 `Working Directory`は、作成するパッケージを保存する場所で
-任意のフォルダでOKです
-その中にPackage用のフォルダが作られます
+任意のフォルダで🙆‍♀️OKです、その中にPackage用のフォルダが作られます
 
-`Package Name`は申請するパッケージのIDとなります
+`Package Name`は申請するパッケージの`ID`となります
 `com`から始めて、所属名やツール/エフェクト名などを`.`でつなぎます
-内容に制限はありません
-サブグループが必要ならばツール/エフェクト名の前に追加します
+サブグループが必要ならば、ツール/エフェクト名の前に追加します
 よくわからなければ他のエフェクトを参考にしましょう☝️
 
 入力が終わったら`Continue`をクリックします
 
 :::message alert
-Package Nameは一度申請したあとは変更できません
+Package Name (Package ID) は一度申請したあとは変更できません
+私はtypoしたまま申請してしまいました😭
+気をつけましょう
 :::  
 
 ![Set Workspace Directory & Package Name](/images/articles/reactor-submission/atom-input-work-dir.png)
@@ -106,7 +106,7 @@ _Package ID_
 
 ## Package情報の作成
 
-Packageに関する必要情報を入力していきます
+Packageに関する必要情報を入力していきます✒️
 
 ![Package Information](/images/articles/reactor-submission/atom-input-pkg-info.png)
 _Package Information_
@@ -119,25 +119,24 @@ _Package Information_
 **【 PackageName 】**
 
 ツール/エフェクト名を入力します
-(自動的に入力されているはず)
+(自動的に入力されているはず👀)
 
 **【 Category 】**
 
 カテゴリを設定します
-任意のものを選択
+任意のものを選択すれば良いですが
 わからなければ`Reactor`を起動して
 他のツール/エフェクトを参考にしながら、それっぽいものを設定しましょう🧐
 
 **【 Version 】**
 
 バージョンです
-`1.0`のような形式(浮動小数点数)で入力します
+`1.0`のような形式で入力します
 
 **【 Date 】**
 
 **現在のバージョン**のリリース日を入力します
-いつでも良いです
-`Today`ボタンを押せば現在日時が入力されます
+いつでも良いです、`Today`ボタンを押せば現在日時が入力されます
 
 
 **【 Donation URL / Donation Amount 】**
@@ -156,15 +155,13 @@ _Package Information_
 **【 Description 】**
 
 ツール/エフェクトの説明文を入力します
-htmlタグが使用できるので
-読みやすいように整形します
+HTMLタグが使用できるので、読みやすいように整形します
 
 この内容がReactorの各ツール/エフェクトのページに記載されます
 
 :::message
-Reactorでの表示欄は狭いので
-あまりに長文だと読みにくいです
-適度な長さで記載しましょう✍️
+Reactorでの表示欄は狭いのであまりに長文だと読みにくいです
+適度な長さで記載しましょう️️✒️
 :::
 
 ![Package Description](/images/articles/reactor-submission/reactor-description.png)
@@ -177,19 +174,15 @@ _Package Description_
 `Working Directory`の中に、`com`から始まるパッケージ名フォルダが作成されているので
 そのなかに、`Fusion`フォルダ内と**同じ構造になるように**
 ツール/エフェクトのファイルを配置します
-このときブランド名フォルダを作成し
-その中に配置するようにすると
-他の人のツール/エフェクトと混ざらなくなるのでおすすめです👍
+このときブランド名フォルダを作成し、その中に配置するようにして
+他の人のツール/エフェクトと混ざらないようにします
 
-:::message
-`Atomizer`はまだ閉じないでください🖐️
-:::
 
 ![Tool/Effect files](/images/articles/reactor-submission/atom-resource-dirs.png)
 _Tool/Effect files_
 
 :::message
-`Fusion`フォルダとは下記のことです
+`Fusion`フォルダとは以下のことです
 
 | OS | Path |
 | :--- | :--- |
@@ -203,8 +196,7 @@ _Tool/Effect files_
 ツール/エフェクトファイルを配置したら`Atom`パッケージに反映させます
 右下にある🔄️シンクボタンを押します
 正しく配置できていれば`Deploy`の部分に反映されます
-`Deploy`に表示されたことを確認し
-`Save Atom`を押して`.atom`ファイルに変更を保存します
+`Deploy`に表示されたことを確認し、`Save Atom`を押して`.atom`ファイルに変更を保存します
 
 ![Add resources to deploy](/images/articles/reactor-submission/atom-sync-resources.png)
 _Add resources to deploy_
@@ -243,12 +235,12 @@ _Zipped Package_
 
 # 📮 2. Reactor登録申請
 
-実際の申請は、WeSuckLessのフォーラムを通じて行います
+Reactorへの登録申請はWeSuckLessのフォーラムを通じて行います
 
 ## Topicの作成
 
 [Reactor Submissions](https://www.steakunderwater.com/wesuckless/viewforum.php?f=33)のページにアクセスして
-新しいTopicを作成しましょう
+新しいTopicを作成しましょう✨
 
 ![New Topic Button](/images/articles/reactor-submission/wsl-new-topic.png)
 _New Topic Button_ 
@@ -375,8 +367,7 @@ _Submit Topic_
 
 Topicを`SUBMISSION`で投稿すると
 Reactorの管理者の方々が内容をチェックしてくれます
-通常は数日ほどで見てもらえますが
-専業ではないので気長に待ちましょう🙂‍↕️
+通常は数日ほどで見てもらえますが、専業ではないので気長に待ちましょう🙂‍↕️
 問題がなければReactorのリポジトリに取り込まれ
 世界中のユーザーがインストールできるようになります🎉🎉🎉
 
